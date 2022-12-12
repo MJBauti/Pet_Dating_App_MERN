@@ -5,10 +5,12 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+import { setContext } from "@apollo/client/link/context";
 
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-
+import Auth from "./utils/auth";
+import LandingPage from "./pages/Landing";
+import Home from "./pages/Home"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 
 const httpLink = createHttpLink({
@@ -32,28 +34,37 @@ const client = new ApolloClient({
 
 
 function App() {
+  var protectedRoute;
+
+  // React.Fragment 
+  // If the user is logged in, then root directory will default to home route.
+  if (Auth.loggedIn()) {
+    protectedRoute = (
+      <Routes>
+        <Route 
+          path= "/" 
+          element = { <Home /> } 
+        />
+      </Routes>
+    );
+  // If the user is not logged in, then root directory will default to the landing page.
+  } else {
+    protectedRoute = (
+      <Routes>
+        <Route 
+          path="/" 
+          element={ <LandingPage /> } 
+        />
+      </Routes>
+    );
+  }
+
   return (
     <ApolloProvider client={client}>
-    <Router>
-      <div>
-          <Nav />
-          <Routes>
-            <Route 
-              path="/" 
-              element={<Home />} 
-            />
-            <Route 
-              path="/login" 
-              element={<Login />} 
-            />
-            <Route 
-              path="/signup" 
-              element={<Signup />} 
-            />
-          </Routes>
-      </div>
-    </Router>
-  </ApolloProvider>
+      <Router>
+        {protectedRoute}
+      </Router>
+    </ApolloProvider>
   );
 }
 
