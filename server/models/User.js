@@ -24,7 +24,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    pet: [Dog.schema]
+    pet: [Dog.schema],
+    orders: [Order.schema]
   },
   // set this to use virtual below
   {
