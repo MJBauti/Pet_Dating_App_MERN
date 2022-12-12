@@ -18,7 +18,8 @@
       "mongoose": "^6.1.8",
       "jsonwebtoken": "^8.5.1",
       "dotenv": "16.0.3",
-      "socket.io": "4.5.4"
+      "socket.io": "4.5.4",
+      "stripe": "^8.67.0"
     },
     "devDependencies": {
       "nodemon": "^2.0.6"
