@@ -12,6 +12,12 @@ import LandingPage from "./pages/Landing";
 import Home from "./pages/Home"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
+import Shop from './pages/Shop';
+import Detail from './pages/Detail';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import { StoreProvider } from './utils/GlobalState';
+import Success from './pages/Success';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,6 +51,28 @@ function App() {
           path= "/" 
           element = { <Home /> } 
         />
+        <Route 
+          path="/login" 
+          element={<Login />} 
+        />
+        <Route 
+          path="/signup" 
+          element={<Signup />} 
+        />
+        <StoreProvider>
+          <Route 
+            path="/shop" 
+            element={<Shop />} 
+          />
+          <Route 
+            path="/success" 
+            element={<Success />} 
+          />
+          <Route 
+            path="/products/:id" 
+            element={<Detail />} 
+          />
+        </StoreProvider>
       </Routes>
     );
   // If the user is not logged in, then root directory will default to the landing page.

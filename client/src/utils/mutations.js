@@ -31,3 +31,43 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_DOG = gql`
+  mutation addDog(
+    $dogName: String!
+    $profilePicture: String!
+    $pictures: String!
+    $gender: String!
+    $breed: String!
+    $birthday: String!
+    $preferences: Array
+  ) {
+    addDog(
+      dogName: $dogName
+      profilePicture: $profilePicture
+      pictures: $pictures
+      gender: $gender
+      breed: $breed
+      birthday: $birthday
+      preferences: $preferences
+    )
+  }
+`;
+
+export const ADD_ORDER = gql`
+  mutation addOrder($products: [ID]!) {
+    addOrder(products: $products) {
+      purchaseDate
+      products {
+        _id
+        name
+        description
+        price
+        quantity
+        category {
+          name
+        }
+      }
+    }
+  }
+`;
