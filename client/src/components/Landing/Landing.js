@@ -6,7 +6,7 @@ import { SideNavbar } from '../SideNavbar/SideNavbar';
 import { LogoLink } from '../LogoLink/LogoLink';
 import { About } from '../About/About';
 import { Contact } from '../Contact/Contact';
-import { Shop } from '../Shop/Shop';
+import { Shop } from "../Shop/Shop";
 
 
 export const Landing = () => {

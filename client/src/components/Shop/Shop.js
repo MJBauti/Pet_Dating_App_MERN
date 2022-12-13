@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductList from "../components/ProductList";
-import Cart from "../components/Cart";
+import ProductList from "../ProductList/ProductList";
+import Cart from "../Cart/Cart";
 
-const Shop = () => {
+export const Shop = () => {
     return (
       <div className="container">
         <ProductList />
