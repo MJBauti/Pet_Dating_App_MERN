@@ -1,6 +1,6 @@
 import React from 'react';
 import './Landing.css';
-import LoginSignup from '../LoginSignup/LoginSignup';
+import Login from '../Login/Login';
 // Landing page's nav abouts & shop
 import { SideNavbar } from '../SideNavbar/SideNavbar';
 import { LogoLink } from '../LogoLink/LogoLink';
@@ -15,7 +15,7 @@ export const Landing = () => {
     <div className="root" id="home">
       <LogoLink />
     </div>
-      <LoginSignup />
+      <Login />
       <SideNavbar />
       <About />
       <Contact />
