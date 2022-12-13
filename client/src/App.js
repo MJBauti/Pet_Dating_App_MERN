@@ -12,10 +12,10 @@ import LandingPage from "./pages/Landing";
 import Home from "./pages/Home"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import Shop from './pages/Shop';
+import Shop from './components/Shop/Shop';
 import Detail from './pages/Detail';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 
