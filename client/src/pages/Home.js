@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 // import Sidebar from "../components/Sidebar/Sidebar"; 
 
 // I'm going to put made up things for the returns
-const Home = () => {
+export const Home = () => {
   return (
     <div>
       <Navbar />

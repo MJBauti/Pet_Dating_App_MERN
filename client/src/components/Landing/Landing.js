@@ -19,7 +19,7 @@ export const Landing = () => {
       <SideNavbar />
       <About />
       <Contact />
-      <Shop />
+      {/* <Shop /> */}
     </>
   );
 };

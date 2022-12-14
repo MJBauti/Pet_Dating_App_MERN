@@ -59,7 +59,7 @@ function App() {
           path="/signup" 
           element={<Signup />} 
         />
-        <StoreProvider>
+        {/* <StoreProvider>
           <Route 
             path="/shop" 
             element={<Shop />} 
@@ -72,7 +72,7 @@ function App() {
             path="/products/:id" 
             element={<Detail />} 
           />
-        </StoreProvider>
+        </StoreProvider> */}
       </Routes>
     );
   // If the user is not logged in, then root directory will default to the landing page.
