@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-// import './Login.css';
 import Auth from '../../utils/auth';
-// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from "../../utils/mutations";
+import { ADD_USER } from '../../utils/mutations';
 import {
   MDBContainer,
   MDBTabs,
@@ -12,14 +11,12 @@ import {
   MDBTabsContent,
   MDBTabsPane,
   MDBBtn,
-  MDBIcon,
   MDBInput,
   MDBCheckbox
 }
 from 'mdb-react-ui-kit';
 
 function Login(props) {
-
 
   const [justifyActive, setJustifyActive] = useState('tab1');;
 
@@ -34,8 +31,9 @@ function Login(props) {
 
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN);
-  
-    const handleFormSubmit = async (event) => {
+    const [addUser] = useMutation(ADD_USER);
+
+    const handleFormLogin = async (event) => {
       event.preventDefault();
       try {
         const mutationResponse = await login({
@@ -48,6 +46,20 @@ function Login(props) {
       }
     };
   
+    const handleFormSignup = async (event) => {
+      event.preventDefault();
+      const mutationResponse = await addUser({
+      variables: {
+          email: formState.email,
+          password: formState.password,
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+      },
+  });
+  const token = mutationResponse.data.addUser.token;
+  Auth.login(token);
+  };
+
     const handleChange = (event) => {
       const { name, value } = event.target;
       setFormState({
@@ -56,7 +68,6 @@ function Login(props) {
       });
     };
   
-
 
   return (
     <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
@@ -78,79 +89,33 @@ function Login(props) {
 
         <MDBTabsPane show={justifyActive === 'tab1'}>
 
-          <div className="text-center mb-3">
-            <p>Sign in with:</p>
 
-            <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='facebook-f' size="sm"/>
-              </MDBBtn>
 
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='twitter' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='google' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='github' size="sm"/>
-              </MDBBtn>
-            </div>
-
-            <p className="text-center mt-3">or:</p>
-          </div>
-
-          <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
+          <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' onChange={handleChange}/>
+          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' onChange={handleChange}/>
 
           <div className="d-flex justify-content-between mx-4 mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-            <a href="!#">Forgot password?</a>
           </div>
 
-          <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
-          <p className="text-center">Not a member? <a href="#!">Register</a></p>
+          <MDBBtn className="mb-4 w-100" onSubmit={handleFormLogin}>Sign in</MDBBtn>
 
         </MDBTabsPane>
 
         <MDBTabsPane show={justifyActive === 'tab2'}>
 
-          <div className="text-center mb-3">
-            <p>Sign un with:</p>
+      
 
-            <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='facebook-f' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='twitter' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='google' size="sm"/>
-              </MDBBtn>
-
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='github' size="sm"/>
-              </MDBBtn>
-            </div>
-
-            <p className="text-center mt-3">or:</p>
-          </div>
-
-          <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
+          <MDBInput wrapperClass='mb-4' name="firstName" label='First Name' id='form1' type='firstName' onChange={handleChange}/>
+          <MDBInput wrapperClass='mb-4' name="lastName" label='Last Name' id='form1' type='lastName' onChange={handleChange}/>
+          <MDBInput wrapperClass='mb-4' name="email" label='Email' id='form1' type='email' onChange={handleChange}/>
+          <MDBInput wrapperClass='mb-4' name="password" label='Password' id='form1' type='password' onChange={handleChange}/>
 
           <div className='d-flex justify-content-center mb-4'>
             <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
           </div>
 
-          <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
+          <MDBBtn className="mb-4 w-100" onSubmit={handleFormSignup}>Sign up</MDBBtn>
 
         </MDBTabsPane>
 
@@ -159,46 +124,6 @@ function Login(props) {
     </MDBContainer>
   );
 
-
-
-  // TOBEFIXED
-    // return (
-    //   <div className="container my-1">
-    //     <Link to="/signup">← Go to Signup</Link>
-  
-    //     <h2>Login</h2>
-    //     <form onSubmit={handleFormSubmit}>
-    //       <div className="flex-row space-between my-2">
-    //         <label htmlFor="email">Email address:</label>
-    //         <input
-    //           placeholder="youremail@test.com"
-    //           name="email"
-    //           type="email"
-    //           id="email"
-    //           onChange={handleChange}
-    //         />
-    //       </div>
-    //       <div className="flex-row space-between my-2">
-    //         <label htmlFor="pwd">Password:</label>
-    //         <input
-    //           placeholder="******"
-    //           name="password"
-    //           type="password"
-    //           id="pwd"
-    //           onChange={handleChange}
-    //         />
-    //       </div>
-    //       {error ? (
-    //         <div>
-    //           <p className="error-text">The provided credentials are incorrect</p>
-    //         </div>
-    //       ) : null}
-    //       <div className="flex-row flex-end">
-    //         <button type="submit">Submit</button>
-    //       </div>
-    //     </form>
-    //   </div>
-    // );
-  }
+}
   
   export default Login;
