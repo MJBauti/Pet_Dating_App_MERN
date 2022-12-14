@@ -1,6 +1,8 @@
-const db = require('./connection');
-const { User, Product, Category, Dog } = require('../models');
-require('../images');
+const db = require('../config/connection');
+const Category = require('../models/Category');
+const Product = require('../models/Product');
+const User = require('../models/User');
+const Dog = require('../models/Dog');
 
 
 db.once('open', async () => {
@@ -35,7 +37,7 @@ db.once('open', async () => {
     },
     {
       name: 'Kong Balls',
-      category: categories[1]._id,
+      category: categories[0]._id,
       description:
         'SqueakAir Balls Packs Dog Toy, Medium, 6 count.',
       image: 'kong-ball.png',
@@ -44,7 +46,7 @@ db.once('open', async () => {
     },
     {
       name: 'Kong Toy',
-      category: categories[1]._id,
+      category: categories[0]._id,
       description:
         'Classic Dog Toy.',
       image: 'kong-toy.png',
@@ -53,7 +55,7 @@ db.once('open', async () => {
     },
     {
       name: 'Frisco Plush',
-      category: categories[1]._id,
+      category: categories[0]._id,
       description:
         'Plush with Inside Rope Squeaking Cow Dog Toy.',
       image: 'cow-plush.png',
@@ -62,7 +64,7 @@ db.once('open', async () => {
     },
     {
       name: 'Chuckit! Launcher',
-      category: categories[2]._id,
+      category: categories[0]._id,
       description:
         'Classic Launcher Dog Toy, Color Varies, Original.',
       image: 'chuckit-launch.png',
@@ -71,7 +73,7 @@ db.once('open', async () => {
     },
     {
       name: 'Kong Bear',
-      category: categories[2]._id,
+      category: categories[0]._id,
       description:
         'Wild Knots Bear Dog Toy.',
       image: 'kong-bear.png',
@@ -80,7 +82,7 @@ db.once('open', async () => {
     },
     {
       name: 'Bones & Chews Toy',
-      category: categories[3]._id,
+      category: categories[0]._id,
       description:
         'Rope Whale Crinkle with Bone Dog Toy, 12".',
       image: 'rope-whale.png',
@@ -89,7 +91,7 @@ db.once('open', async () => {
     },
     {
       name: 'American Journey Dog Treats',
-      category: categories[4]._id,
+      category: categories[0]._id,
       description: 'Peanut Butter Recipe Grain-Free Oven Baked Crunchy Biscuit Dog Treats.',
       image: 'american-treat.png',
       price: 4.99,
@@ -97,7 +99,7 @@ db.once('open', async () => {
     },
     {
       name: 'Pup-Peroni Treats',
-      category: categories[4]._id,
+      category: categories[0]._id,
       description:
         'Pup-Peroni Original Beef Flavor Dog Treats.',
       image: 'pupperoni.png',
@@ -106,7 +108,7 @@ db.once('open', async () => {
     },
     {
       name: 'Milk Bone Treats',
-      category: categories[4]._id,
+      category: categories[0]._id,
       description:
         'Milk-Bone Original Small Biscuit Dog Treats.',
       image: 'milkbone1.png',
@@ -115,7 +117,7 @@ db.once('open', async () => {
     },
     {
       name: 'PetSafe Dog Leash',
-      category: categories[4]._id,
+      category: categories[0]._id,
       description:
         'PetSafe Premier Nylon Dog Leash.',
       image: 'petsafe-leash.png',
@@ -133,11 +135,7 @@ db.once('open', async () => {
     lastName: 'Fry',
     email: 'fry@testmail.com',
     password: 'password12345',
-    orders: [
-      {
-        products: [products[0]._id, products[0]._id, products[1]._id]
-      }
-    ]
+    
   });
 
   await User.create({
@@ -151,21 +149,17 @@ db.once('open', async () => {
 
   await Dog.deleteMany();
 
-  await Dog.create({
-    userId: '1',
-    dogName: 'Princess Leia',
-    profilePicture: '',
-    pictures: 'leia-snow.jpg',
-    gender: 'Girl',
-    breed: 'Golden Retriever',
-    birthday: '05/07/2017',
-    preferences: ['must be fixed', 'not aggressive', 'has all shots'],
-    petParent: [
-        {
-            User: User.firstName
-        }
-    ]
-  });
+  // await Dog.create({
+  //   userId: '1',
+  //   dogName: 'Princess Leia',
+  //   profilePicture: 'leia-snow.jpg',
+  //   pictures: 'leia-snow.jpg',
+  //   gender: 'Girl',
+  //   breed: 'Golden Retriever',
+  //   birthday: '05/07/2017',
+  //   preferences: ['must be fixed', 'not aggressive', 'has all shots'],
+  //   petParent: [User.user.name]
+  // });
 
   console.log('Dogs seeded');
   

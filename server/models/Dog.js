@@ -1,4 +1,5 @@
-const { Schema } = require('mongoose');
+const mongoose = require('mongoose')
+const { Schema } = mongoose;
 const User = require('./User');
 
 const dogSchema = new Schema(
@@ -16,7 +17,7 @@ const dogSchema = new Schema(
             required: true,
         },
         pictures: {
-            type: Array,
+            type: String,
             required: true,
         },
         gender: {
@@ -32,9 +33,9 @@ const dogSchema = new Schema(
             required: true,
         },
         preferences: {
-            type: Array,
+            type: String,
         },
-        petParent: [User.schema]
+        petParent: [{type: Schema.Types.ObjectId, ref: 'User'}]
     }
 )
 

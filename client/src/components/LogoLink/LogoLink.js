@@ -6,18 +6,10 @@ import logoPng from "../../Assets/logo.png"
 export const LogoLink = () => {
     return (
         <Link to="/">
-            <img src={logoPng} alt="Logo" class="img"
+            <img src={logoPng} alt="Logo" className="img"
             />
         </Link>
     );
 };
 
 export default LogoLink
-{/* <div
-                className="img"
-                style={{ 
-                    background: "url(" + logoPng + ")",
-                    backgroundColor: 'black',
-                }}
-            >
-            </div>  */}
