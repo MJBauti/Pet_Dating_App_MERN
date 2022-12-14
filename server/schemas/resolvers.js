@@ -84,12 +84,12 @@ const resolvers = {
                 // Validating email on database
                 const user = await User.findOne({ email });
                 if (!user) {
-                    throw new AuthenticationError('Incorrect credentials');
+                    throw new AuthenticationError('Incorrect email');
                 }
                 // Validating password on database
                 const correctPw = await user.isCorrectPassword(password);
                 if (!correctPw) {
-                    throw new AuthenticationError('Incorrect crendentials');
+                    throw new AuthenticationError('Incorrect password');
                 }
                 
                 const token = signToken(user);

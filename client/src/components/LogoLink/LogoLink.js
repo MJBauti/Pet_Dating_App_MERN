@@ -5,7 +5,7 @@ import logoPng from "../../Assets/logo.png"
 
 export const LogoLink = () => {
     return (
-        <Link to="/">
+        <Link>
             <img src={logoPng} alt="Logo" className="img"
             />
         </Link>
