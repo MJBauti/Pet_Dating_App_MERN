@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Dog = require('./Dog');
 
 const userSchema = new Schema(
   {
@@ -24,8 +24,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    pet: [Dog.schema],
-    orders: [Order.schema]
+    pet: [{type: Schema.Types.ObjectId, ref: 'Dog'}],
+    orders: [{type: Schema.Types.ObjectId, ref: 'Order'}],
   },
   // set this to use virtual below
   {
@@ -50,6 +50,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const User = model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

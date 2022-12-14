@@ -1,10 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Dog, Product, Category, Order } = require('../models');
-const { signToken } = require('../utils/')
+const { signToken } = require('../utils/auth')
 
 const resolvers = {
     Query: {
-        me: async (parent, args, context) => {
+        user: async (parent, args, context) => {
             if (context.user) {
                 try {
                     // get a user by id

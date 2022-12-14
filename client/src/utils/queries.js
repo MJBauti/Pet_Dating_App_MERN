@@ -74,14 +74,14 @@ export const QUERY_USER = gql`
       firstName
       lastName
       pet {
-        _id: ID
-        dogName: String!
-        profilePicture: String!
-        pictures: String!
-        gender: String!
-        breed: String!
-        birthday: String!
-        preferences: Array
+        _id
+        dogName
+        profilePicture
+        pictures
+        gender
+        breed
+        birthday
+        preferences
       }
       orders {
         _id
