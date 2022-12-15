@@ -1,6 +1,9 @@
 import React from 'react';
 import './About.css';
 import logoPng from '../../Assets/logo.png'
+import MainBody from '../MainBodyLayout/MainBody'
+
+
 export const About = () => {
     const description = `Welcome to Pawfect Match, the place where pet lovers
      can connect and find their perfect match. Whether you're looking for a furry
@@ -9,27 +12,29 @@ export const About = () => {
         so you can trust that your pets will be in good hands. Join now and start your
          search for your pawfect match!`
     return (
-        <section id="About">
-            <main className="main" maxwidth="md">
-                <div className="about">
-                <div className="_img"
-                    style={{ 
-                        background: "url(" + logoPng + ")",
-                        backgroundSize: 'contain',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundColor: 'turquoise',
-                    }}
-                >
-                </div>
-                    <div className="_content_wrapper">
-                        <h2>
-                            {description}
-                        </h2>
+        <MainBody>
+            <section id="About">
+                <main className="main" maxwidth="md">
+                    <div className="about">
+                    <div className="_img"
+                        style={{ 
+                            background: "url(" + logoPng + ")",
+                            backgroundSize: 'contain',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundColor: 'turquoise',
+                        }}
+                    >
                     </div>
-                </div>
-            </main>
-        </section>
+                        <div className="_content_wrapper">
+                            <h2>
+                                {description}
+                            </h2>
+                        </div>
+                    </div>
+                </main>
+            </section>
+        </MainBody>
     );
 };
 

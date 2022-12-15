@@ -1,14 +1,16 @@
-// import React from 'react';
-// import ProductList from "../ProductList/ProductList";
-// import Cart from "../Cart/Cart";
+import React from 'react';
+import ProductList from "../ProductList/ProductList";
+import Cart from "../Cart/Cart";
+import MainBody from '../MainBodyLayout/MainBody'
 
-// export const Shop = () => {
-//     return (
-//       <div className="container">
-//         <ProductList />
-//         <Cart />
-//       </div>
-//     );
-// };
+export const Shop = () => {
+    return (
+      <MainBody>
+        {/* <ProductList />
+        <Cart /> */}
+        Shop
+      </MainBody>
+    );
+};
 
-// export default Shop;
+export default Shop;

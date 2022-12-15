@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,8 +8,8 @@ import {
 import { setContext } from "@apollo/client/link/context";
 
 import Auth from "./utils/auth";
-import LandingPage from "./pages/Landing";
-import Home from "./pages/Home"
+import LandingPage from "./pages/Landing/Landing";
+import Home from "./pages/Home/Home"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Shop from './components/Shop/Shop';
@@ -18,6 +18,9 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
+import { SideNavbar } from './components/SideNavbar/SideNavbar';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,60 +43,49 @@ const client = new ApolloClient({
 
 
 function App() {
-  var protectedRoute;
-
+  
+  const protectedRoute = useRef('routes')
   // React.Fragment 
   // If the user is logged in, then root directory will default to home route.
   if (Auth.loggedIn()) {
-    protectedRoute = (
+    protectedRoute.current =
       <Routes>
         <Route 
           path= "/" 
           element = { <Home /> } 
         />
         <Route 
-          path="/login" 
-          element={<Login />} 
+          path="/about-me" 
+          element={<About />} 
         />
         <Route 
-          path="/signup" 
-          element={<Signup />} 
+          path="/contact" 
+          element={<Contact />} 
         />
-        {/* <StoreProvider>
-          <Route 
-            path="/shop" 
-            element={<Shop />} 
-          />
-          <Route 
-            path="/success" 
-            element={<Success />} 
-          />
-          <Route 
-            path="/products/:id" 
-            element={<Detail />} 
-          />
-        </StoreProvider> */}
+        <Route 
+          path="/shop" 
+          element={<Shop />} 
+        />
       </Routes>
-    );
   // If the user is not logged in, then root directory will default to the landing page.
   } else {
-    protectedRoute = (
+    protectedRoute.current = 
       <Routes>
         <Route 
           path="/" 
           element={ <LandingPage /> } 
         />
       </Routes>
-    );
   }
 
   return (
     <ApolloProvider client={client}>
       <Router>
-        {protectedRoute}
+        {protectedRoute.current}
       </Router>
     </ApolloProvider>
-  );
+  )
 }
 
 export default App;
+
