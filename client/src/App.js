@@ -21,6 +21,7 @@ import Success from './pages/Success';
 import { SideNavbar } from './components/SideNavbar/SideNavbar';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
+import MainBody from './components/MainBodyLayout/MainBody';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -80,9 +81,11 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <Router>
-        {protectedRoute.current}
-      </Router>
+        <Router>
+          <MainBody>
+            {protectedRoute.current}
+          </MainBody>
+        </Router>
     </ApolloProvider>
   )
 }

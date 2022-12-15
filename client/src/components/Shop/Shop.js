@@ -1,15 +1,14 @@
 import React from 'react';
 import ProductList from "../ProductList/ProductList";
 import Cart from "../Cart/Cart";
-import MainBody from '../MainBodyLayout/MainBody'
 
 export const Shop = () => {
     return (
-      <MainBody>
+        <div>
         {/* <ProductList />
         <Cart /> */}
-        Shop
-      </MainBody>
+          Shop
+        </div>
     );
 };
 
