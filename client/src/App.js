@@ -21,6 +21,8 @@ import Success from './pages/Success';
 import { SideNavbar } from './components/SideNavbar/SideNavbar';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
+import MainBody from './components/MainBodyLayout/MainBody';
+import AuthProvider from './components/AuthProvider/AuthProvider';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,45 +46,36 @@ const client = new ApolloClient({
 
 function App() {
   
-  const protectedRoute = useRef('routes')
-  // React.Fragment 
-  // If the user is logged in, then root directory will default to home route.
-  if (Auth.loggedIn()) {
-    protectedRoute.current =
-      <Routes>
-        <Route 
-          path= "/" 
-          element = { <Home /> } 
-        />
-        <Route 
-          path="/about-me" 
-          element={<About />} 
-        />
-        <Route 
-          path="/contact" 
-          element={<Contact />} 
-        />
-        <Route 
-          path="/shop" 
-          element={<Shop />} 
-        />
-      </Routes>
-  // If the user is not logged in, then root directory will default to the landing page.
-  } else {
-    protectedRoute.current = 
-      <Routes>
-        <Route 
-          path="/" 
-          element={ <LandingPage /> } 
-        />
-      </Routes>
-  }
-
   return (
     <ApolloProvider client={client}>
-      <Router>
-        {protectedRoute.current}
-      </Router>
+        <Router>
+          <MainBody>
+            <AuthProvider>
+              <Routes>
+                <Route 
+                  path= "/" 
+                  element = { <Home /> } 
+                />
+                <Route 
+                  path="/about-me" 
+                  element={<About />} 
+                />
+                <Route 
+                  path="/contact" 
+                  element={<Contact />} 
+                />
+                <Route 
+                  path="/shop" 
+                  element={<Shop />} 
+                />
+                <Route 
+                  path="/login" 
+                  element={ <LandingPage /> } 
+                />
+              </Routes>
+            </AuthProvider>
+          </MainBody>
+        </Router>
     </ApolloProvider>
   )
 }
