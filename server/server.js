@@ -37,7 +37,7 @@ app.post('/create-checkout-session', async (req, res) => {
           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
           price_data: {
             currency: 'usd',
-            unit_amount: parseInt('12')*100,
+            unit_amount: parseInt(req.body.price)*100,
             product_data: {
               name: 'donate'
             },
