@@ -15,7 +15,6 @@ import './App.css';
 import Shop from './components/Shop/Shop';
 import Detail from './pages/Detail';
 import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import { SideNavbar } from './components/SideNavbar/SideNavbar';
