@@ -67,13 +67,13 @@
 
 .form button {
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     margin-top: 60px;
     width: 100%;
     display: block;
     font-size: 20px;
     border-radius: 6px;
-    border: 2px solid lightskyblue
+    border: 2px solid lightskyblue;
 }
 
 .form button:hover {

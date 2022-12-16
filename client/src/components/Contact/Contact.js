@@ -3,6 +3,7 @@ import logoPng from '../../Assets/logo.png'
 import MainBody from '../MainBodyLayout/MainBody'
 import { validateEmail } from '../../utils/helpers';
 import './Contact.css';
+import { MDBBtn, MDBInput } from 'mdb-react-ui-kit';
 
 export const Contact = () => {
     const description = `Our Doggos Will Get Back To You As Soon As Possible🐶`
@@ -63,31 +64,31 @@ export const Contact = () => {
                         </div>
                     </div>
                     <form className="form">
-                        <label>Your Email</label>
-                        <input
+                        <label>Your Email:</label>
+                        <MDBInput
                             value={email}
                             name="email"
                             onChange={handleInputChange}
                             type="email"
                             placeholder="Email"
                         />
-                        <label>Your Name</label>
-                        <input
+                        <label>Your Name:</label>
+                        <MDBInput
                             value={userName}
                             name="userName"
                             onChange={handleInputChange}
                             type="text"
                             placeholder="Name"
                         />
-                        <label>Message</label>
-                        <input
+                        <label>Message:</label>
+                        <MDBInput
                             value={message}
                             name="message"
                             onChange={handleInputChange}
                             type="text"
                             placeholder="Message"
                         />
-                        <button type="button" onClick={handleFormSubmit}>Submit</button>
+                        <MDBBtn type="button" onClick={handleFormSubmit}>Submit</MDBBtn>
                     </form>
                         <div>
                             <p className="error-text">{errorMessage}</p>
