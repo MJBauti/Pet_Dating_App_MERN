@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+// import React, { useState, Fragment } from 'react';
 import './SideNavbar.css';
 import { Link, useLocation} from "react-router-dom";
 import logoPng from "../../Assets/logo.png"
@@ -31,10 +31,10 @@ export const SideNavbar = () => {
               <h2>Contact</h2>
             </Link>
             <Link
-              to="/shop"
-              className={location.pathname === '/shop' ? 'active' : ''}
+              to="/donate"
+              className={location.pathname === '/donate' ? 'active' : ''}
             >
-              <h2>Shop</h2>
+              <h2>Donate</h2>
             </Link>
           </nav>
         </div>

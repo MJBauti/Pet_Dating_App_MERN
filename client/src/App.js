@@ -12,15 +12,14 @@ import LandingPage from "./pages/Landing/Landing";
 import Home from "./pages/Home/Home"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import Shop from './components/Shop/Shop';
-import Detail from './pages/Detail';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
-import { StoreProvider } from './utils/GlobalState';
-import Success from './pages/Success';
-import { SideNavbar } from './components/SideNavbar/SideNavbar';
+// import Login from './components/Login/Login';
+// import Signup from './components/Signup/Signup';
+// import { SideNavbar } from './components/SideNavbar/SideNavbar';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
+import Donate from './components/Donate/Donate';
+console.log(Donate)
+// import Donate from './pages/Donate';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -62,9 +61,9 @@ function App() {
           path="/contact" 
           element={<Contact />} 
         />
-        <Route 
-          path="/shop" 
-          element={<Shop />} 
+        <Route
+          path="/donate"
+          element={<Donate />}
         />
       </Routes>
   // If the user is not logged in, then root directory will default to the landing page.

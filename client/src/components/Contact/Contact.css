@@ -37,6 +37,49 @@
     text-decoration: none;
     background-color: #ec704c;
 }
+
+
+.contact-info h2 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+} 
+
+.form {
+    padding-left: 20%;
+    max-width: 80%;
+}
+
+.form input {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100%;
+    display: block;
+    font-size: 20px;
+    border-radius: 6px;
+    border: 2px solid lightskyblue
+}
+
+.form label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form button {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    margin-top: 60px;
+    width: 100%;
+    display: block;
+    font-size: 20px;
+    border-radius: 6px;
+    border: 2px solid lightskyblue
+}
+
+.form button:hover {
+    color: whitesmoke;
+    background: #49bfcc;
+}
 @media (max-width: 1024px) {
     .about {
         margin-left: 5rem;

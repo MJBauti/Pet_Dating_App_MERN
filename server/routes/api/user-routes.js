@@ -1,20 +1,20 @@
-const router = require('express').Router();
-const {
-  createUser,
-  getSingleUser,
-  login,
-} = require('../../controllers/user-controller');
+// const router = require('express').Router();
+// const {
+//   createUser,
+//   getSingleUser,
+//   login,
+// } = require('../../controllers/user-controller');
 
-// import middleware
-const { authMiddleware } = require('../../utils/auth');
+// // import middleware
+// const { authMiddleware } = require('../../utils/auth');
 
-// put authMiddleware anywhere we need to send a token for verification of user
-router.route('/').post(createUser).put(authMiddleware);
+// // put authMiddleware anywhere we need to send a token for verification of user
+// router.route('/').post(createUser).put(authMiddleware);
 
-router.route('/login').post(login);
+// router.route('/login').post(login);
 
-router.route('/me').get(authMiddleware, getSingleUser);
+// router.route('/me').get(authMiddleware, getSingleUser);
 
-router.route('//:').delete(authMiddleware);
+// router.route('//:').delete(authMiddleware);
 
-module.exports = router;
+// module.exports = router;
