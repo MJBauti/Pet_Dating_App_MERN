@@ -34,8 +34,8 @@ export const SideNavbar = () => {
                 <h2>Contact</h2>
               </Link>
               <Link
-                to="/shop"
-                className={location.pathname === '/shop' ? 'active' : ''}
+                to="/about"
+                className={location.pathname === '/about' ? 'active' : ''}
               >
                 <h2>Shop</h2>
               </Link>
