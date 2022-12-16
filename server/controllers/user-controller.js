@@ -6,10 +6,14 @@ const { signToken } = require('../utils/auth');
 module.exports = {
   // get a single user by either their id or their username
   async getSingleUser({ user = null, params }, res) {
-    const foundUser = await User.findOne({
-      $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
-    });
+    console.log('ID TIME')
+    console.log(params.id)
+    // const foundUser = await User.findOne({
+    //   $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
+    // });
 
+    const foundUser = await User.findOne({_id: (params.id) })
+    console.log(foundUser)
     if (!foundUser) {
       return res.status(400).json({ message: 'Cannot find a user with this id!' });
     }
@@ -18,13 +22,16 @@ module.exports = {
   },
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
   async createUser({ body }, res) {
+    console.log('create user')
+    console.log(body)
     const user = await User.create({
-      firstName,
-      lastName,
-      email,
-      password,
+      firstName: body.firstName,
+      lastName: body.lastName,
+      email: body.email,
+      password: body.password,
     });
 
+    console.log(user)
     if (!user) {
       return res.status(400).json({ message: 'Something is wrong!' });
     }

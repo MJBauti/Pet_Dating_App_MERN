@@ -9,6 +9,8 @@ const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+const apiRoutes = require('./routes/api');
+
 
 // Serve up static assets
 // app.use('/images', express.static(path.join(__dirname, '../client/images')));
@@ -23,6 +25,8 @@ if (process.env.NODE_ENV === 'production') {
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
+
+app.use('/api', apiRoutes);
 
 
 // Create a new instance of an Apollo server with the GraphQL schema
