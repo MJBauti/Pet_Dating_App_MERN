@@ -13,7 +13,6 @@ import {
   MDBTabsPane,
   MDBBtn,
   MDBInput,
-  MDBCheckbox
 }
 from 'mdb-react-ui-kit';
 
@@ -52,11 +51,6 @@ function Login(props) {
   const handleFormSignup = async (event) => {
     event.preventDefault();
 
-    console.log(formState.email)
-    console.log(formState.password)
-    console.log(formState.firstName)
-    console.log(formState.lastName)
-    console.log(error);
     const mutationResponse = await addUser({
       variables: {
           email: formState.email,
@@ -70,9 +64,9 @@ function Login(props) {
     Auth.login(token);
   };
 
-  // This 
+  // This takes in the user's input
   const handleChange = (event) => {
-    console.log("hweh")
+  
     const { name, value } = event.target;
     setFormState({
       ...formState,
