@@ -24,8 +24,22 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    pet: [{type: Schema.Types.ObjectId, ref: 'Dog'}],
-    orders: [{type: Schema.Types.ObjectId, ref: 'Order'}],
+    dogName: {
+      type: String,
+      required: true,
+    },
+    gender: {
+      type: String,
+      required: true,
+    },
+    breed: {
+      type: String,
+      required: true,
+    },
+    birthday: {
+      type: String,
+      required: true,
+    },
   },
   // set this to use virtual below
   {
