@@ -10,7 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 import Auth from "./utils/auth";
 import Landing from "./pages/Landing/Landing";
 import Home from "./pages/Home/Home";
-import Donate from "./components/Donate/Donate";
+import Donate from "./pages/Donate/Donate";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 
@@ -40,12 +40,12 @@ function App() {
     <ApolloProvider client={client}>
         <Router>
         <Routes>
-        <Route path="/donate" element={ <Donate /> } />
           {Auth.loggedIn() ? (
             <Route path="/" element={ <Home /> }/>
           ) : (
             <Route path="/" element={ <Landing /> }/>
           )}
+          <Route path="/donate" element={ <Donate /> } />
           </Routes>
         </Router>
     </ApolloProvider>
