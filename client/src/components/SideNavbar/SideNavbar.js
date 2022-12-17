@@ -8,9 +8,6 @@ export const SideNavbar = () => {
     const location = useLocation();
     const [activeNav, setActiveNav] = useState('#');
 
-    function refreshPage() {
-      window.location.reload(false);
-    }
 
     return (
         <div className="navAll">
@@ -57,9 +54,9 @@ export const SideNavbar = () => {
                   <h2> Contact </h2>
                 </a>
 
-                <Link to="/donate" className={location.pathname === '/donate' ? 'active' : ''}  >
+                <a href="#Donate" onClick={() => setActiveNav('#Donate')} className={activeNav === '#Donate' ? 'active' : ''} >
                   <h2 className='shopHover'>Donate</h2>
-                </Link>
+                </a>
               </>
             )}
             

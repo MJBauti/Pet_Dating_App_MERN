@@ -3,11 +3,12 @@ import './Donate.css';
 import Donate from '../../components/Donate/Donate';
 import SideNavbar from '../../components/SideNavbar/SideNavbar';
 
+
 export const Landing = () => {
   return (
     <>
-        <SideNavbar />
-        <Donate />
+      <SideNavbar />
+      <Donate />
     </>
   );
 };

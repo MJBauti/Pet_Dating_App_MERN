@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Auth from '../../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
 import "./Profile.css"
 
@@ -28,8 +27,8 @@ export function Profile() {
     // var for useState and Mutations
     const [formState, setFormState] = useState({ email: '', firstName: '', lastName: '', dogName: '', gender: '', breed: '', birthday: '', });
     const { loading, data } = useQuery(QUERY_USER);
-
     const [updateUser] = useMutation(UPDATE_USER);
+
     const userData = data?.user || {};
     // Detects user's inputs
     const handleChange = (event) => {
@@ -39,9 +38,7 @@ export function Profile() {
             [name]: value,
         });
     };
-   
-   // function for populating the cards with existing data
-   // please make me
+    
    
     // function for handling updateUser
     const handleFormUserUpdate = async (event) => {
@@ -73,7 +70,11 @@ export function Profile() {
             birthday: inputBirthday
         },
         });
-        window.location.replace('./profile')
+        console.log("User updated!")
+        if (mutationResponse) {
+            console.log("Update successful!")
+            window.location.reload();
+        }
       } 
   
     // if there is content filled out in the textbox for dog, then the button will be "update dog", otherwise, "add dog".
@@ -84,7 +85,7 @@ export function Profile() {
    return (
     <section className="profile-wrapper">
       <div className="profile-cards">
-
+      
       <form onSubmit={handleFormUserUpdate}>
       <MDBContainer >
         <MDBRow>
