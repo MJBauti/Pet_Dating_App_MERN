@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import logo from '../../Assets/logo.png'
 import './Donate.css';
 import { MDBBtn, MDBInput } from 'mdb-react-ui-kit';
-import SideNavbar from "../SideNavbar/SideNavbar"
 
 const ProductDisplay = ({price}) => (
-      <div className="donate-wrapper">
-        <section>
+      <div className="donate-wrapper" id="Donate">
+        <section className="Donate">
 
           <div className="product">
               <img

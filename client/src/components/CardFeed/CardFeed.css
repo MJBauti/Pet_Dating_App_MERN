@@ -1,0 +1,16 @@
+.card-feed-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10%;
+}
+
+/* .profile-cards {
+    width: 100vw;
+} */
+.card-feed-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 29%;
+}

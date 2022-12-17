@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Auth from '../../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
 import "./Profile.css"
 
@@ -7,8 +6,7 @@ import "./Profile.css"
 import { QUERY_USER } from '../../utils/queries';
 // mutations
 import { UPDATE_USER } from '../../utils/mutations';
-import { UPDATE_DOG } from '../../utils/mutations';
-import { ADD_DOG } from '../../utils/mutations';
+
 
 
 import {
@@ -27,14 +25,11 @@ import {
 
 export function Profile() {
     // var for useState and Mutations
-    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [formState, setFormState] = useState({ email: '', firstName: '', lastName: '', dogName: '', gender: '', breed: '', birthday: '', });
     const { loading, data } = useQuery(QUERY_USER);
     const [updateUser] = useMutation(UPDATE_USER);
-    const [addDog] = useMutation(ADD_DOG);
-    const [updateDog] = useMutation(UPDATE_DOG);
-   
-    const userData = data?.user || {};
 
+    const userData = data?.user || {};
     // Detects user's inputs
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -43,62 +38,45 @@ export function Profile() {
             [name]: value,
         });
     };
-   
-   // function for populating the cards with existing data
-   // please make me
+    
    
     // function for handling updateUser
     const handleFormUserUpdate = async (event) => {
       event.preventDefault();
-      
-      
+
+     
+      const inputFirstName = formState.firstName || userData.firstName;
+      const inputLastName = formState.lastName || userData.lastName;
+      const inputEmail = formState.email || userData.email;
+      const inputDogName = formState.dogName || userData.dogName;
+      const inputBreed = formState.breed || userData.breed;
+      const inputGender = formState.gender || userData.gender;
+      const inputBirthday = formState.birthday || userData.birthday;
+      console.log (inputFirstName)
+      console.log (inputLastName)
+      console.log (inputEmail)
+      console.log (inputDogName)
+      console.log (inputBreed)
+      console.log (inputGender)
+      console.log (inputBirthday)
         const mutationResponse = await updateUser({
           variables: {
-          email: formState.email,
-          firstName: formState.firstName,
-          lastName: formState.lastName,
+            firstName: inputFirstName,
+            lastName: inputLastName,
+            email: inputEmail,
+            dogName: inputDogName,
+            breed: inputBreed,
+            gender: inputGender,
+            birthday: inputBirthday
         },
         });
-        console.log(mutationResponse)
-        const token = mutationResponse.data.updateUser.token;
-        Auth.getToken(token);
+        console.log("User updated!")
+        if (mutationResponse) {
+            console.log("Update successful!")
+            window.location.reload();
+        }
       } 
   
-
-
-
-
-
-  const dynamicDogUpdate = async (event) => {
-    event.preventDefault();
-
-    if (formState.dogName === null || formState.dogName === undefined) {
-      const mutationResponse = await addDog({
-        variables: {
-          dogName: formState.dogName,
-          gender: formState.gender,
-          breed: formState.breed,
-          birthday: formState.birthday,
-        },
-      });
-      const dogAdd = mutationResponse.data.addDog;
-      console.log("Added Dog Successful!");
-    } else {
-      const mutationResponse = await updateDog({
-        variables: {
-          dogName: formState.dogName,
-          profilePicture: formState.profilePicture,
-          pictures: formState.pictures,
-          gender: formState.gender,
-          breed: formState.breed,
-          birthday: formState.birthday,
-        },
-      });
-      const dogUpdate = mutationResponse.data.updateDog;
-      console.log("What the dog doing?");
-    }
-  };
-
     // if there is content filled out in the textbox for dog, then the button will be "update dog", otherwise, "add dog".
     // need to make id's 
     if (loading) {
@@ -107,14 +85,14 @@ export function Profile() {
    return (
     <section className="profile-wrapper">
       <div className="profile-cards">
-
       
+      <form onSubmit={handleFormUserUpdate}>
       <MDBContainer >
         <MDBRow>
           {/* Owner image card */}
           <MDBCol lg="4">
             <MDBCard className="mb-4">
-              <MDBCardBody className="text-center">
+              <MDBCardBody className="text-center owner-image-card">
                 <MDBCardImage
                   src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                   alt="avatar"
@@ -131,11 +109,11 @@ export function Profile() {
             </MDBCard>
           </MDBCol> 
             {/* Owner info card */}
-          <MDBCol lg="8" h="100" className="owner-card">
+            
+          <MDBCol lg="8" h="100" className="owner-card ">
             <MDBCard className="mb-4">
-            <form onSubmit={handleFormUserUpdate}>
-              <MDBCardBody className="text-center">
-                <hr />
+            
+              <MDBCardBody className="text-center ">
                   <MDBRow>
                     <MDBCol sm="3">
                       <MDBCardText>First Name</MDBCardText>
@@ -165,7 +143,7 @@ export function Profile() {
                   <hr />
                   <MDBBtn className="mb-4 w-100" type= "submit">Update user info</MDBBtn>
                 </MDBCardBody>
-              </form>
+              
             </MDBCard>
           </MDBCol>
         </MDBRow>
@@ -176,7 +154,7 @@ export function Profile() {
           {/* Dog image card */}
           <MDBCol lg="4">
             <MDBCard className="mb-4">
-              <MDBCardBody className="text-center">
+              <MDBCardBody className="text-center dog-image-card">
                 <MDBCardImage
                   src="https://www.pngkit.com/png/full/950-9507730_635px-circle-dog-catches-something.png"
                   alt="avatar"
@@ -184,8 +162,8 @@ export function Profile() {
                   style={{ width: '150px' }}
                   fluid />
                   {/* retrieve data for dogName and dogBreed */}
-                <p className="text-muted mb-1">Dog Name here later</p>
-                <p className="text-muted mb-4">Dog Breed here later</p>
+                <p className="text-muted mb-1">{userData.dogName}, {userData.birthday}</p>
+                <p className="text-muted mb-4">{userData.gender} {userData.breed}</p>
                 <div className="d-flex justify-content-center mb-2">
                   <MDBBtn>Follow</MDBBtn>
                   <MDBBtn outline className="ms-1">Message</MDBBtn>
@@ -197,15 +175,14 @@ export function Profile() {
             {/* Dog info card */}
           <MDBCol lg="8">
             <MDBCard className="mb-4">
-              <form onSubmit={dynamicDogUpdate}>
-                <MDBCardBody className="text-center">
-                <hr />
+              
+                <MDBCardBody className="text-center card-input">
                   <MDBRow>
                     <MDBCol sm="3">
                       <MDBCardText>Dog Name</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBInput name="dogName" label={userData.pet.dogName} id='dogName' type='dogName' onInput={handleChange}/>
+                      <MDBInput name="dogName" label={userData.dogName} id='dogName' type='dogName' onInput={handleChange}/>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -214,7 +191,7 @@ export function Profile() {
                       <MDBCardText>Dog Gender</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBInput name="dogGender" label={userData.pet.dogGender} id='dogGender' type='dogGender' onInput={handleChange}/>
+                      <MDBInput name="gender" label={userData.gender} id='gender' type='gender' onInput={handleChange}/>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -223,7 +200,7 @@ export function Profile() {
                       <MDBCardText>Dog Breed</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBInput name="dogBreed" label={userData.pet.dogBreed} id='dogBreed' type='dogBreed' onInput={handleChange}/>
+                      <MDBInput name="breed" label={userData.breed} id='dogbreed' type='breed' onInput={handleChange}/>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -232,17 +209,20 @@ export function Profile() {
                       <MDBCardText>Dog Age</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBInput name="dogAge" label={userData.pet.dogAge} id='dogAge' type='dogAge' onInput={handleChange}/>
+                      <MDBInput name="birthday" label={userData.birthday} id='birthday' type='birthday' onInput={handleChange}/>
                     </MDBCol>
                   </MDBRow>
+
                   <hr />
                   <MDBBtn className="mb-4 w-100" type= "submit">Update dog info</MDBBtn>
                 </MDBCardBody>
-              </form>
+             
             </MDBCard>
           </MDBCol>
+          
         </MDBRow>
       </MDBContainer>
+      </form>
       </div>
     </section>
    );

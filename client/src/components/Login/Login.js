@@ -60,6 +60,10 @@ function Login(props) {
           password: formState.password,
           firstName: formState.firstName,
           lastName: formState.lastName,
+          dogName: formState.dogName,
+          gender: formState.gender,
+          breed: formState.breed,
+          birthday: formState.birthday,
       },
     });
     console.log(error);
@@ -122,6 +126,10 @@ function Login(props) {
                 <MDBInput wrapperClass='mb-4' name="lastName" label='Last Name' id='lastName' type='lastName' onInput={handleChange}/>
                 <MDBInput wrapperClass='mb-4' name="email" label='Email' id='email' type='email' onInput={handleChange}/>
                 <MDBInput wrapperClass='mb-4' name="password" label='Password' id='password' type='password' onInput={handleChange}/>
+                <MDBInput wrapperClass='mb-4' name="dogName" label='Dog Name' id='dogName' type='dogName' onInput={handleChange}/>
+                <MDBInput wrapperClass='mb-4' name="gender" label='Gender' id='gender' type='gender' onInput={handleChange}/>
+                <MDBInput wrapperClass='mb-4' name="breed" label='Breed' id='breed' type='breed' onInput={handleChange}/>
+                <MDBInput wrapperClass='mb-4' name="birthday" label='Age' id='birthday' type='birthday' onInput={handleChange}/>
                 <MDBBtn className="mb-4 w-100" type= "submit">Sign up</MDBBtn>
               </form>
             </MDBTabsPane>

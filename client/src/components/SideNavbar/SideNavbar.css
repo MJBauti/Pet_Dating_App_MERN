@@ -4,23 +4,27 @@ nav {
   transform: rotate(-90deg) translate3d(-50%,0,0);
   top: 15%;
   position: fixed;
+  
 }
 nav h2 {
   margin-right: 20px;
-  text-decoration: none;
   color: #575757;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 nav h2:hover {
   margin-right: 20px;
-  text-decoration: none;
   color: #ec704c;
+  font-size: 250%;
+  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(226, 192, 21, 0.4);
 }
 nav h2.active {
   color: #ec704c;
+  text-decoration: underline;
 }
-
 .shopHover:hover {
-  color: red;
+  color: rgb(42, 62, 246);
   text-decoration: underline;
 }
 
@@ -30,9 +34,13 @@ nav h2.active {
   flex-direction: column;
   align-items: center;
   margin-top: 25px;
+  transition: all 0.5s ease;
 }
 .Logout {
-  color:red;
+  color:rgb(232, 127, 127);
+}
+.Logout:hover {
+  color:rgb(230, 39, 39);
   font-weight: bolder;
 }
 .img {

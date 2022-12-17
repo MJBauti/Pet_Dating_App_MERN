@@ -4,19 +4,26 @@
     flex-wrap: wrap;
     align-items: center;
     margin-left: 10%;
+    margin-right: 5%;
 }
 .profile-cards {
     width: 90vw;
     opacity: 95%;
-    
 }
 
 .text-center {
     display: flex;
     flex-direction: column;
     align-items: left;
-    justify-content: space-around;
-    min-height: 25vh;
+    justify-content:space-between;
+}
+
+.owner-image-card {
+    min-height: 24vh;
+}
+
+.dog-image-card {
+    min-height: 29.5vh;
 }
 
 .rounded-circle {
@@ -27,6 +34,7 @@
     .profile-cards {
       
     margin-top:20%;
+    margin-left:12%;
     }
 }
 
