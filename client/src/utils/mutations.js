@@ -55,13 +55,13 @@ export const UPDATE_USER = gql`
 
 export const ADD_DOG = gql`
   mutation addDog(
-    $dogName: String!
-    $profilePicture: String!
-    $pictures: String!
-    $gender: String!
-    $breed: String!
-    $birthday: String!
-    $preferences: Array
+    $dogName: String
+    $profilePicture: String
+    $pictures: String
+    $gender: String
+    $breed: String
+    $birthday: String
+    $preferences: String
   ) {
     addDog(
       dogName: $dogName
@@ -83,7 +83,7 @@ export const UPDATE_DOG = gql`
     $gender: String
     $breed: String
     $birthday: String
-    $preferences: Array
+    $preferences: String
   ) {
     updateDog(
       dogName: $dogName

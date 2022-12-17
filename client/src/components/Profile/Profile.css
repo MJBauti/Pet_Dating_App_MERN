@@ -1,0 +1,33 @@
+.profile-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 10%;
+}
+.profile-cards {
+    width: 90vw;
+    opacity: 95%;
+    
+}
+
+.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-around;
+    min-height: 25vh;
+}
+
+.rounded-circle {
+    align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-cards {
+      
+    margin-top:20%;
+    }
+}
+
+/* on active text area  */

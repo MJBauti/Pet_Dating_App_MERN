@@ -11,6 +11,7 @@ import Auth from "./utils/auth";
 import Landing from "./pages/Landing/Landing";
 import Home from "./pages/Home/Home";
 import Donate from "./pages/Donate/Donate";
+import Profile from "./pages/Profile/Profile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 
@@ -46,6 +47,7 @@ function App() {
             <Route path="/" element={ <Landing /> }/>
           )}
           <Route path="/donate" element={ <Donate /> } />
+          <Route path="/profile" element={ <Profile /> } />
           </Routes>
         </Router>
     </ApolloProvider>
@@ -53,4 +55,3 @@ function App() {
 }
 
 export default App;
-
