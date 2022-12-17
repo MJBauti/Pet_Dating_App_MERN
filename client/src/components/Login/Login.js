@@ -3,6 +3,9 @@ import Auth from '../../utils/auth';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from "../../utils/mutations";
 import { ADD_USER } from '../../utils/mutations';
+import logoPng from '../../Assets/logo.png'
+import './Login.css'
+
 // MBD library for login ui
 import {
   MDBContainer,
@@ -76,50 +79,66 @@ function Login(props) {
   
 
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+    <div className='wrapper'>
+      <div className='company-intro'>
+        <h1 className='company-name'> Pawfect Match </h1>
+        <h2> Meet dog people for friends, pet playdates, or a date for you! </h2>
+      </div> 
+    <div className='login-wrapper'>
+      <div className='picture-left'>
+        <div className='_img' 
+          style={{ 
+            background: "url(" + logoPng + ")",
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: 'skyblue',
+          }}>
+          <h1> Meet new friends! </h1>
+        </div>
+        
+      </div>
 
-      <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
-        <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-            Login
-          </MDBTabsLink>
-        </MDBTabsItem>
-        <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
-            Register
-          </MDBTabsLink>
-        </MDBTabsItem>
-      </MDBTabs>
+      <div className='login-right'>
+        <MDBContainer className="w-50">
+          <h1 className='joinus'>  &nbsp;&nbsp;Sign up today!&nbsp;&nbsp;</h1>
+          <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
+            <MDBTabsItem>
+              <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
+                Register
+              </MDBTabsLink>
+            </MDBTabsItem>
+            <MDBTabsItem>
+              <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
+                Login
+              </MDBTabsLink>
+            </MDBTabsItem>
+          </MDBTabs>
 
-      <MDBTabsContent>
+          <MDBTabsContent>
+            <MDBTabsPane show={justifyActive === 'tab1'}>
+              <form onSubmit={handleFormSignup}>
+                <MDBInput wrapperClass='mb-4' name="firstName" label='First Name' id='firstName' type='firstName' onInput={handleChange}/>
+                <MDBInput wrapperClass='mb-4' name="lastName" label='Last Name' id='lastName' type='lastName' onInput={handleChange}/>
+                <MDBInput wrapperClass='mb-4' name="email" label='Email' id='email' type='email' onInput={handleChange}/>
+                <MDBInput wrapperClass='mb-4' name="password" label='Password' id='password' type='password' onInput={handleChange}/>
+                <MDBBtn className="mb-4 w-100" type= "submit">Sign up</MDBBtn>
+              </form>
+            </MDBTabsPane>
 
-        <MDBTabsPane show={justifyActive === 'tab1'}>
+            <MDBTabsPane show={justifyActive === 'tab2'}>
+              <form onSubmit={handleFormLogin}>
+                <MDBInput wrapperClass='mb-4' name="email" label='Email address' id='email' type='email' onInput={handleChange}/>
+                <MDBInput wrapperClass='mb-4' name="password" label='Password' id='password' type='password' onInput={handleChange}/>
+                <MDBBtn className="mb-4 w-100" type= "submit">Sign in</MDBBtn>
+              </form>
+            </MDBTabsPane>
+          </MDBTabsContent>
+        </MDBContainer>
+      </div>
+    </div>
 
-
-        <form onSubmit={handleFormLogin}>
-          <MDBInput wrapperClass='mb-4' name="email" label='Email address' id='email' type='email' onInput={handleChange}/>
-          <MDBInput wrapperClass='mb-4' name="password" label='Password' id='password' type='password' onInput={handleChange}/>
-
-          <MDBBtn className="mb-4 w-100" type= "submit">Sign in</MDBBtn>
-        </form>
-        </MDBTabsPane>
-
-        <MDBTabsPane show={justifyActive === 'tab2'}>
-
-      
-          <form onSubmit={handleFormSignup}>
-          <MDBInput wrapperClass='mb-4' name="firstName" label='First Name' id='firstName' type='firstName' onInput={handleChange}/>
-          <MDBInput wrapperClass='mb-4' name="lastName" label='Last Name' id='lastName' type='lastName' onInput={handleChange}/>
-          <MDBInput wrapperClass='mb-4' name="email" label='Email' id='email' type='email' onInput={handleChange}/>
-          <MDBInput wrapperClass='mb-4' name="password" label='Password' id='password' type='password' onInput={handleChange}/>
-
-          <MDBBtn className="mb-4 w-100" type= "submit">Sign up</MDBBtn>
-          </form>
-        </MDBTabsPane>
-
-      </MDBTabsContent>
-
-    </MDBContainer>
+    </div>
   );
 
 }
