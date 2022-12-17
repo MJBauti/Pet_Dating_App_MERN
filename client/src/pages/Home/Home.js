@@ -6,8 +6,10 @@ import CardFeed from '../../components/CardFeed/CardFeed';
 export const Landing = () => {
   return (
     <>
+      
         <SideNavbar />
         <CardFeed />
+
     </>
   );
 };

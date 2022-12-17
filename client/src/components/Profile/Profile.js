@@ -31,7 +31,6 @@ export function Profile() {
 
     const [updateUser] = useMutation(UPDATE_USER);
     const userData = data?.user || {};
-    console.log(userData.dogName)
     // Detects user's inputs
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -47,25 +46,31 @@ export function Profile() {
     // function for handling updateUser
     const handleFormUserUpdate = async (event) => {
       event.preventDefault();
-      console.log(formState.firstName)
-      console.log(formState.lastName)
-      console.log(formState.email)
-      console.log(formState.dogName)
-      console.log(formState.gender)
-      console.log(formState.breed)
-      console.log(formState.birthday)
-      console.log(updateUser)
-      
-      
+
+     
+      const inputFirstName = formState.firstName || userData.firstName;
+      const inputLastName = formState.lastName || userData.lastName;
+      const inputEmail = formState.email || userData.email;
+      const inputDogName = formState.dogName || userData.dogName;
+      const inputBreed = formState.breed || userData.breed;
+      const inputGender = formState.gender || userData.gender;
+      const inputBirthday = formState.birthday || userData.birthday;
+      console.log (inputFirstName)
+      console.log (inputLastName)
+      console.log (inputEmail)
+      console.log (inputDogName)
+      console.log (inputBreed)
+      console.log (inputGender)
+      console.log (inputBirthday)
         const mutationResponse = await updateUser({
           variables: {
-            firstName: formState.firstName,
-            lastName: formState.lastName,
-            email: formState.email,
-            dogName: formState.dogName,
-            gender: formState.gender,
-            breed: formState.breed,
-            birthday: formState.birthday,
+            firstName: inputFirstName,
+            lastName: inputLastName,
+            email: inputEmail,
+            dogName: inputDogName,
+            breed: inputBreed,
+            gender: inputGender,
+            birthday: inputBirthday
         },
         });
         window.location.replace('./profile')
@@ -156,8 +161,8 @@ export function Profile() {
                   style={{ width: '150px' }}
                   fluid />
                   {/* retrieve data for dogName and dogBreed */}
-                <p className="text-muted mb-1">{userData.dogName}</p>
-                <p className="text-muted mb-4">{userData.breed}</p>
+                <p className="text-muted mb-1">{userData.dogName}, {userData.birthday}</p>
+                <p className="text-muted mb-4">{userData.gender} {userData.breed}</p>
                 <div className="d-flex justify-content-center mb-2">
                   <MDBBtn>Follow</MDBBtn>
                   <MDBBtn outline className="ms-1">Message</MDBBtn>
