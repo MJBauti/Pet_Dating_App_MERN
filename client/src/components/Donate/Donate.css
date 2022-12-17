@@ -1,5 +1,13 @@
+.donate-wrapper {
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+}
+
 .product {
-    align-content: center;
     margin: 5em;
     margin-left: 220px;
     width: 19em;
@@ -9,14 +17,10 @@
     border: 1px solid rgba(255, 255, 255, 0.51);
 }
 
-.product h3{
-    margin-top: 10px;
-    margin-left: 30px;
-}
+
 
 .form label{
     text-align: center;
-    margin-left: 40px;
 }
 
 .button {
@@ -33,6 +37,4 @@
     text-decoration: none;
 }
 
-.donate-wrapper {
-    min-height: 100vh;
-}
+

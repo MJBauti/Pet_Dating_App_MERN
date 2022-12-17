@@ -7,6 +7,7 @@ import Auth from "../../utils/auth";
 export const SideNavbar = () => {
     const location = useLocation();
     const [activeNav, setActiveNav] = useState('#');
+
     function refreshPage() {
       window.location.reload(false);
     }
@@ -15,9 +16,9 @@ export const SideNavbar = () => {
         <div className="navAll">
         
           
-          <a href="#" onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}>
+          <Link to="/" className={location.pathname === '/' ? 'active' : ''} >
             <img src={logoPng} alt="Logo" className="img"/>
-          </a>
+          </Link>
           
           <nav>
             {/* If logged in, the users will see this */}

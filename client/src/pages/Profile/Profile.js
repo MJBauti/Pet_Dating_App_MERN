@@ -1,3 +1,4 @@
+
 import React, {useState} from "react";
 import Auth from '../../utils/auth';
 import { useMutation } from '@apollo/client';
@@ -99,7 +100,7 @@ export function Profile() {
     // if there is content filled out in the textbox for dog, then the button will be "update dog", otherwise, "add dog".
     // need to make id's 
    return (
-    <section className="wrapper">
+    <section className="profile-wrapper">
       <div className="profile-cards">
 
       
