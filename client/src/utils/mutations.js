@@ -71,47 +71,10 @@ export const UPDATE_USER = gql`
   }
 `;
 
-// export const ADD_DOG = gql`
-//   mutation addDog(
-//     $dogName: String!
-//     $gender: String!
-//     $breed: String!
-//     $birthday: String!
-//     $preferences: String
-//   ) {
-//     addDog(
-//       dogName: $dogName
-//       gender: $gender
-//       breed: $breed
-//       birthday: $birthday
-//       preferences: $preferences
-//     ) {
-//       dogName
-//       gender
-//       breed
-//       birthday
-//     }
-//   }
-// `;
+// export const FOLLOW = gql`
+//   mutation follow(
+//     $followingId: 
+//   )  {
 
-// export const UPDATE_DOG = gql`
-//   mutation updateDog(
-//     $dogName: String
-//     $profilePicture: String
-//     $pictures: String
-//     $gender: String
-//     $breed: String
-//     $birthday: String
-//     $preferences: String
-//   ) {
-//     updateDog(
-//       dogName: $dogName
-//       profilePicture: $profilePicture
-//       pictures: $pictures
-//       gender: $gender
-//       breed: $breed
-//       birthday: $birthday
-//       preferences: $preferences
-//     )
 //   }
-// `;
+// `
