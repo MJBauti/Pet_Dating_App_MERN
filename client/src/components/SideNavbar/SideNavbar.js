@@ -24,7 +24,7 @@ export const SideNavbar = () => {
             {/* If logged in, the users will see this */}
             {Auth.loggedIn() ? (
               <>
-                <Link to="/" onClick={refreshPage}>
+                <Link to="/" onClick={location.pathname === '/' ? 'active' : ''}>
                   <h2>Home</h2>
                 </Link>
                 <Link to="/profile" className={location.pathname === '/profile' ? 'active' : ''} >
