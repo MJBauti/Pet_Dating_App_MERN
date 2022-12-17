@@ -1,36 +1,73 @@
 nav {
-    display: flex;
-    flex-direction: row-reverse;
-    transform: rotate(-90deg) translate3d(-50%,0,0);
-    top: 15%;
-    left: -6.5rem;
-  }
-  nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #575757;
-  }
-  nav a:hover {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #ec704c;
-  }
-  nav a.active {
-    color: #ec704c;
-  }
+  display: flex;
+  flex-direction: row-reverse;
+  transform: rotate(-90deg) translate3d(-50%,0,0);
+  top: 15%;
+  left: -6.5rem;
+  position: fixed;
+}
+nav h2 {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #575757;
+}
+nav h2:hover {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #ec704c;
+}
+nav h2.active {
+  color: #ec704c;
+}
 
-  .navAll {
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25px;
-  }
+.shopHover:hover {
+  color: red;
+  text-decoration: underline;
+}
 
-  .img {
-    width: 50px;
-    height: 50px;
-    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
-    border-radius:60%;
-    background: rgb(255, 155, 208);
+.navAll {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+.Logout {
+  color:red;
+  font-weight: bolder;
+}
+.img {
+  position:fixed;
+  width: 75px;
+  height: 75px;
+  border-radius:60%;
+  margin-left: 20px;
+  background-image: linear-gradient(
+    to right,
+    #54b3d6,
+    #7a47e1 50%,
+    rgb(255, 179, 221) 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.img:before {
+  content: '';
+  background: #54b3d6;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+}
+.img:hover {
+  background-position: 0;
+  cursor:url(https://cdn.custom-cursor.com/db/9896/32/cute-shiba-inu-cursor.png) , default!important;
+}
+ .img:hover::before {
+  width: 100%;
 }

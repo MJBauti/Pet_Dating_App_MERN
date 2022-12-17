@@ -11,6 +11,8 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// const apiRoutes = require('./routes/api');
+
 
 // Serve up static assets
 // app.use('/images', express.static(path.join(__dirname, '../client/images')));

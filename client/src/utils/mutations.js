@@ -32,6 +32,27 @@ export const ADD_USER = gql`
   }
 `;
 
+export const UPDATE_USER = gql`
+  mutation updateUser(
+    $firstName: String
+    $lastName: String
+    $email: String
+    $password: String
+  ) {
+    updateUser(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+    ) {
+      token
+      user {
+        _id
+      }
+    }
+  }
+`;
+
 export const ADD_DOG = gql`
   mutation addDog(
     $dogName: String!
@@ -54,6 +75,7 @@ export const ADD_DOG = gql`
   }
 `;
 
+<<<<<<< HEAD
 // export const ADD_ORDER = gql`
 //   mutation addOrder($products: [ID]!) {
 //     addOrder(products: $products) {
@@ -71,3 +93,26 @@ export const ADD_DOG = gql`
 //     }
 //   }
 // `;
+=======
+export const UPDATE_DOG = gql`
+  mutation updateDog(
+    $dogName: String
+    $profilePicture: String
+    $pictures: String
+    $gender: String
+    $breed: String
+    $birthday: String
+    $preferences: Array
+  ) {
+    updateDog(
+      dogName: $dogName
+      profilePicture: $profilePicture
+      pictures: $pictures
+      gender: $gender
+      breed: $breed
+      birthday: $birthday
+      preferences: $preferences
+    )
+  }
+`;
+>>>>>>> 130e316f0e1b6a1c659858dbcf5313e437ce10e7

@@ -1,16 +1,16 @@
-import React from "react";
-// We need to decide what goes in the home page. Below are ... ideas?
-// import MatchesFeed from "../components/MatchesFeed/MatchesFeed"; 
-// import Sidebar from "../components/Sidebar/Sidebar"; 
-import MainBody from '../../components/MainBodyLayout/MainBody'
+import React from 'react';
+import './Home.css';
+import Profile from '../Profile/Profile';
+import SideNavbar from '../../components/SideNavbar/SideNavbar';
 
-// I'm going to put made up things for the returns
-export const Home = () => {
+
+export const Landing = () => {
   return (
-    <MainBody>
-      <div>hi</div>
-    </MainBody>
+    <>
+        <SideNavbar />
+        <Profile />
+    </>
   );
 };
 
-export default Home
+export default Landing;

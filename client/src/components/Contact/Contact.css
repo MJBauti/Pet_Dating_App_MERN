@@ -6,11 +6,15 @@
     flex-direction: row;
     align-items: center;
 }
+.contactWrap {
 
+    min-height: 100vh;
+}
 .main {
     max-width: 100vw;
     margin-top: 3em;
     margin-bottom: auto;
+
 }
 .heading {
     width: 30%;
