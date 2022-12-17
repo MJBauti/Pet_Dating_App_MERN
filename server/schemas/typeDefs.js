@@ -14,8 +14,10 @@ const typeDefs = gql`
         gender: String!
         breed: String!
         birthday: String!
+        
     }
 
+   
     type Auth {
         token: ID
         user: User
@@ -28,14 +30,14 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(
-            firstName: String, 
-            lastName: String, 
+            firstName: String!, 
+            lastName: String!, 
             email: String!, 
             password: String!, 
-            dogName: String,
-            gender: String,
-            breed: String,
-            birthday: String): Auth
+            dogName: String!,
+            gender: String!,
+            breed: String!,
+            birthday: String!): Auth
         updateUser(
             firstName: String, 
             lastName: String, 
@@ -44,8 +46,22 @@ const typeDefs = gql`
             gender: String, 
             breed: String, 
             birthday: String): User
+       
+        
         
     }
 `;
+// follow(
+//     followingId: ID!):Follow
+// unfollow(
+//     followId: ID): Boolean
+// followers: [Follow]
+//         following: [Follow]
+
+// type Follow {
+//     id: ID!
+//     follower: User!
+//     following: User!
+// }
 
 module.exports = typeDefs;

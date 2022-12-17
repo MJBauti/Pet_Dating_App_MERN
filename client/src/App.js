@@ -42,12 +42,19 @@ function App() {
         <Router>
         <Routes>
           {Auth.loggedIn() ? (
+            <>
             <Route path="/" element={ <Home /> }/>
+            <Route path="/donate" element={ <Donate /> } />
+            <Route path="/profile" element={ <Profile /> } />
+            </>
           ) : (
+            <>
             <Route path="/" element={ <Landing /> }/>
+            <Route path="/donate" element={ <Landing /> } />
+            <Route path="/profile" element={ <Landing /> } />
+            </>
           )}
-          <Route path="/donate" element={ <Donate /> } />
-          <Route path="/profile" element={ <Profile /> } />
+          
           </Routes>
         </Router>
     </ApolloProvider>

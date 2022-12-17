@@ -58,6 +58,27 @@ const resolvers = {
       
             throw new AuthenticationError('Not logged in');
         },
+        // async follow(parent, args, context, info) {
+        //     if (!context.req.user) {
+        //         throw new Error('You must be logged in to follow a user. Try clicking Log Out.')
+        //     }
+        //     const following = await User.findById(args.followingId);
+        //     if (!following) {
+        //         throw new Error('User not found');
+        //     }
+        //     const follow = new Follow({
+        //         follower: context.req.user._id,
+        //         following: following._id
+        //     });
+        //     await follow.save();
+
+        //     context.req.user.following.push(follow._id);
+        //     following.followers.push(follow._id);
+        //     await context.req.user.save();
+        //     await following.save();
+
+        //     return follow;
+        // }
     },
 };
 
