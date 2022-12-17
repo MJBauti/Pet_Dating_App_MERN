@@ -4,19 +4,25 @@ nav {
   transform: rotate(-90deg) translate3d(-50%,0,0);
   top: 15%;
   left: -6.5rem;
+  position: fixed;
 }
-nav a {
+nav h2 {
   margin-right: 20px;
   text-decoration: none;
   color: #575757;
 }
-nav a:hover {
+nav h2:hover {
   margin-right: 20px;
   text-decoration: none;
   color: #ec704c;
 }
-nav a.active {
+nav h2.active {
   color: #ec704c;
+}
+
+.shopHover:hover {
+  color: red;
+  text-decoration: underline;
 }
 
 .navAll {
@@ -31,12 +37,11 @@ nav a.active {
   font-weight: bolder;
 }
 .img {
+  position:fixed;
   width: 75px;
   height: 75px;
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
   border-radius:60%;
   margin-left: 20px;
-  background: rgb(255, 155, 208);
   background-image: linear-gradient(
     to right,
     #54b3d6,

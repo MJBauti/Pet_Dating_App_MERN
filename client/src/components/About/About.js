@@ -11,7 +11,7 @@ export const About = () => {
         so you can trust that your pets will be in good hands. Join now and start your
          search for your pawfect match!`
     return (
-        <section id="About">
+        <section className="aboutWrap" id="About">
             <main className="main" maxwidth="md">
                 <div className="about">
                 <div className="_img"

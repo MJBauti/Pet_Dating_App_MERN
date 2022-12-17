@@ -1,10 +1,11 @@
 import React from 'react';
 import logoPng from '../../Assets/logo.png'
+import "./Contact.css"
 
 export const Contact = () => {
     const description = `something something something something something something something something Can someone fill this with a nice description about our company/website?`
     return (
-        <section id="Contact">
+        <section className ="contactWrap" id="Contact">
             <main className="main" maxwidth="md">
                 <div className="about">
                 <div className="_img"
