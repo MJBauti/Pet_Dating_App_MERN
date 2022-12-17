@@ -29,6 +29,10 @@
     display: block;
     font-size: 20px;
     border-radius: 6px;
-    background-color: white;
+    /* background-color: white; */
     text-decoration: none;
+}
+
+.donate-wrapper {
+    min-height: 100vh;
 }
