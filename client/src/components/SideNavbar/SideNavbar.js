@@ -34,8 +34,8 @@ export const SideNavbar = () => {
                   <h2>Messages</h2>
                 </Link>
 
-                <Link to="/shop" className={location.pathname === '/shop' ? 'active' : ''} >
-                  <h2 className='shopHover' >Shop</h2>
+                <Link to="/donate" className={location.pathname === '/donate' ? 'active' : ''} >
+                  <h2 className='shopHover' >Donate</h2>
                 </Link>
 
                 <Link to="/" onClick={Auth.logout}>
@@ -56,8 +56,8 @@ export const SideNavbar = () => {
                   <h2> Contact </h2>
                 </a>
 
-                <Link to="/shop" className={location.pathname === '/shop' ? 'active' : ''}  >
-                  <h2 className='shopHover'>Shop</h2>
+                <Link to="/donate" className={location.pathname === '/donate' ? 'active' : ''}  >
+                  <h2 className='shopHover'>Donate</h2>
                 </Link>
               </>
             )}
