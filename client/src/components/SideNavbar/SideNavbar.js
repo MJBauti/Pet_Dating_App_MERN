@@ -1,4 +1,4 @@
-// import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import './SideNavbar.css';
 import { Link, useLocation} from "react-router-dom";
 import logoPng from "../../Assets/logo.png";
@@ -20,32 +20,6 @@ export const SideNavbar = () => {
           </a>
           
           <nav>
-<<<<<<< HEAD
-            <Link
-              to="/"
-              className={location.pathname === '/' ? 'active' : ''}
-            >
-              <h2>Home</h2>
-            </Link>
-            <Link
-              to="/about-me"
-              className={location.pathname === '/about-me' ? 'active' : ''}
-            >
-              <h2>About</h2>
-            </Link>
-            <Link
-              to="/contact"
-              className={location.pathname === '/contact' ? 'active' : ''}
-            >
-              <h2>Contact</h2>
-            </Link>
-            <Link
-              to="/donate"
-              className={location.pathname === '/donate' ? 'active' : ''}
-            >
-              <h2>Donate</h2>
-            </Link>
-=======
             {/* If logged in, the users will see this */}
             {Auth.loggedIn() ? (
               <>
@@ -88,7 +62,6 @@ export const SideNavbar = () => {
               </>
             )}
             
->>>>>>> 130e316f0e1b6a1c659858dbcf5313e437ce10e7
           </nav>
         </div>
     );

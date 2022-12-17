@@ -75,25 +75,6 @@ export const ADD_DOG = gql`
   }
 `;
 
-<<<<<<< HEAD
-// export const ADD_ORDER = gql`
-//   mutation addOrder($products: [ID]!) {
-//     addOrder(products: $products) {
-//       purchaseDate
-//       products {
-//         _id
-//         name
-//         description
-//         price
-//         quantity
-//         category {
-//           name
-//         }
-//       }
-//     }
-//   }
-// `;
-=======
 export const UPDATE_DOG = gql`
   mutation updateDog(
     $dogName: String
@@ -115,4 +96,3 @@ export const UPDATE_DOG = gql`
     )
   }
 `;
->>>>>>> 130e316f0e1b6a1c659858dbcf5313e437ce10e7

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import logoPng from '../../Assets/logo.png'
-import MainBody from '../MainBodyLayout/MainBody'
+// import MainBody from '../MainBodyLayout/MainBody'
 import { validateEmail } from '../../utils/helpers';
 import './Contact.css';
 import { MDBBtn, MDBInput } from 'mdb-react-ui-kit';
@@ -40,7 +40,7 @@ export const Contact = () => {
     };
 
     return (
-        <MainBody>
+        // <MainBody>
             <section id="Contact">
                 <main className="main" maxwidth="md">
                     <div className="about">
@@ -95,7 +95,7 @@ export const Contact = () => {
                         </div>
                 </main>
             </section>
-        </MainBody>
+        // </MainBody>
     );
 };
 
