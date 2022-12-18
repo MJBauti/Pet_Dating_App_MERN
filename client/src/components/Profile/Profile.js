@@ -73,7 +73,7 @@ export function Profile() {
         console.log("User updated!")
         if (mutationResponse) {
             console.log("Update successful!")
-            window.location.reload();
+            window.location.replace('./');
         }
       } 
   
