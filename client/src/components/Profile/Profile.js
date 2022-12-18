@@ -52,13 +52,6 @@ export function Profile() {
       const inputBreed = formState.breed || userData.breed;
       const inputGender = formState.gender || userData.gender;
       const inputBirthday = formState.birthday || userData.birthday;
-      console.log (inputFirstName)
-      console.log (inputLastName)
-      console.log (inputEmail)
-      console.log (inputDogName)
-      console.log (inputBreed)
-      console.log (inputGender)
-      console.log (inputBirthday)
         const mutationResponse = await updateUser({
           variables: {
             firstName: inputFirstName,
@@ -70,10 +63,8 @@ export function Profile() {
             birthday: inputBirthday
         },
         });
-        console.log("User updated!")
         if (mutationResponse) {
-            console.log("Update successful!")
-            window.location.replace('./');
+            window.location.replace('/profile');
         }
       } 
   

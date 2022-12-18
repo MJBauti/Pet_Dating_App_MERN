@@ -71,10 +71,77 @@ export const UPDATE_USER = gql`
   }
 `;
 
-// export const FOLLOW = gql`
-//   mutation follow(
-//     $followingId: 
-//   )  {
 
-//   }
-// `
+
+export const ADD_COMMENT = gql`
+  mutation($postId: String!, $body: String!) {
+    createComment(postId: $postId, body: $body) {
+      _id
+      comments {
+        id
+        body
+        createdAt
+        email
+      }
+      commentCount
+    }
+  }
+`;
+
+export const DELETE_POST = gql`
+mutation deletePost($postId: ID!) {
+  deletePost(postId: $postId)
+}
+`;
+
+export const DELETE_COMMENT = gql`
+mutation deleteComment($postId: ID!, $commentId: ID!) {
+  deleteComment(postId: $postId, commentId: $commentId) {
+    id
+    comments {
+      id
+      email
+      createdAt
+      body
+    }
+    commentCount
+  }
+}
+`;
+
+export const LIKE_POST = gql`
+mutation likePost($postId: ID) {
+  likePost(postId: $postId) {
+    id
+    likes {
+      id
+      email
+    }
+    likeCount
+  }
+}
+`;
+
+export const CREATE_POST = gql`
+mutation createPost($body: String!) {
+  createPost(body: $body) {
+    id
+    body
+    createdAt
+    email
+    likes {
+      id
+      email
+      createdAt
+    }
+    likeCount
+    comments {
+      id
+      body
+      email
+      createdAt
+    }
+    commentCount
+  }
+}
+`;

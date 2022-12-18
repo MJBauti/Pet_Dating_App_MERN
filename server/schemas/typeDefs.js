@@ -10,14 +10,36 @@ const typeDefs = gql`
         firstName: String!
         lastName: String!
         email: String!
-        dogName: String!
-        gender: String!
-        breed: String!
-        birthday: String!
-        
+        dogName: String
+        gender: String
+        breed: String
+        birthday: String
     }
 
-   
+    type Post {
+        id: ID
+        body: String
+        createdAt: String
+        email: String
+        comments: [Comment]
+        likes: [Like]
+        likeCount: Int
+        commentCount: Int
+    }
+
+    type Comment {
+        id: ID
+        createdAt: String
+        email: String
+        body: String
+    }
+
+    type Like {
+        id: ID
+        createdAt: String
+        email: String
+    }
+
     type Auth {
         token: ID
         user: User
@@ -25,6 +47,8 @@ const typeDefs = gql`
 
     type Query {
         user: User
+        getPosts: [Post]
+        getPost(postId: ID): Post
     }
 
     type Mutation {
@@ -46,9 +70,15 @@ const typeDefs = gql`
             gender: String, 
             breed: String, 
             birthday: String): User
-       
-        
-        
+
+        createPost(body: String!): Post!
+        deletePost(postId: ID!): String!
+        createComment(postId: String!, body: String!): Post!
+        deleteComment(postId: ID, commentId: ID): Post!
+        likePost(postId: ID): Post!
+    }
+    type Subscription {
+        newPost: Post!
     }
 `;
 // follow(

@@ -12,6 +12,8 @@ import Landing from "./pages/Landing/Landing";
 import Home from "./pages/Home/Home";
 import Donate from "./pages/Donate/Donate";
 import Profile from "./pages/Profile/Profile";
+import Posts from "./pages/Posts/Posts";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 
@@ -46,12 +48,13 @@ function App() {
             <Route path="/" element={ <Home /> }/>
             <Route path="/donate" element={ <Donate /> } />
             <Route path="/profile" element={ <Profile /> } />
+            <Route path="/posts" element={ <Posts /> } />
             </>
           ) : (
             <>
             <Route path="/" element={ <Landing /> }/>
             <Route path="/donate" element={ <Landing /> } />
-            <Route path="/profile" element={ <Landing /> } />
+            <Route path="/posts/:postId" element={ <Landing /> } />
             </>
           )}
           
