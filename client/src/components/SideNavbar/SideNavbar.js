@@ -28,8 +28,8 @@ export const SideNavbar = () => {
                   <h2>Profile</h2>
                 </Link>
                 
-                <Link to="/messages" className={location.pathname === '/messages' ? 'active' : ''} >
-                  <h2>Messages</h2>
+                <Link to="/posts" className={location.pathname === '/posts' ? 'active' : ''} >
+                  <h2>Posts</h2>
                 </Link>
 
                 <Link to="/donate" className={location.pathname === '/donate' ? 'active' : ''} >

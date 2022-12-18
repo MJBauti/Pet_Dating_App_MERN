@@ -1,15 +1,15 @@
 import React from 'react';
-import './Home.css';
+import './Posts.css';
 import SideNavbar from '../../components/SideNavbar/SideNavbar';
-import CardFeed from '../../components/CardFeed/CardFeed';
-import { CreatePost } from '../../components/CreatePost/CreatePost';
+import Posts from '../../components/Posts/Posts';
 
 export const Landing = () => {
   return (
     <>
-        <CreatePost />
+      
         <SideNavbar />
-        <CardFeed />
+        <Posts />
+
     </>
   );
 };
