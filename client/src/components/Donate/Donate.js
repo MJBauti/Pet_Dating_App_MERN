@@ -22,7 +22,7 @@ const ProductDisplay = ({price}) => (
               </div>
           </div>
 
-          <form className="button" action="http://localhost:3001/create-checkout-session" method="POST">
+          <form className="button" action={"http://localhost:3001/create-checkout-session" || "https://a-pawfect-match.herokuapp.com/"} method="POST">
               <MDBInput
                       defaultValue= {price}
                       name="price"
