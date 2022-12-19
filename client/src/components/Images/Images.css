@@ -1,0 +1,33 @@
+.Images {
+    font-family: sans-serif;
+    /* text-align: center; */
+    background-color: #f6f9fe;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.update {
+    margin: 10px;
+}
+.rem-butt {
+    margin-left: 10px;
+}
+.remove {
+    margin: 10px;
+}
+.image-item {
+    display: flex;
+    margin: 10px 0;
+}
+.image-item__btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+button {
+    height: 40px;
+}
+  
