@@ -11,10 +11,6 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "apollo-link-context": "^1.0.20",
-        "apollo-link-http": "^1.5.17",
-        "graphql-tag": "^2.12.6",
-        "@graphql-tools/schema": "^9.0.12",
         "apollo-server-express": "^3.6.2",
         "bcrypt": "^4.0.1",
         "dotenv": "16.0.3",
