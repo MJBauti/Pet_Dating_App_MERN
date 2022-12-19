@@ -13,11 +13,18 @@ import {
 export function Images() {
   const [images, setImages] = React.useState([]);
   const maxNumber = 69;
+//   const image = this.getImage.value;
+//   localStorage.setItem('image', image );
 
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
+    
+  // Save all the images to local storage
+    imageList.forEach((image, index) => {
+    localStorage.setItem(`image${index}`, image['data_url']);
+    });
   };
 
   return (
@@ -44,7 +51,6 @@ export function Images() {
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
                 <MDBCardImage src={image['data_url']} alt="" width="200px" />
-
                 <div className="image-item__btn-wrapper">
                   <MDBBtn className="update" onClick={() => onImageUpdate(index)}>Update</MDBBtn>
                   <MDBBtn className="remove" onClick={() => onImageRemove(index)}>Remove</MDBBtn>
