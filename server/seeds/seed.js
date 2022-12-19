@@ -1,10 +1,13 @@
+
 const db = require('../config/connection');
 const User = require('../models/User');
+const Post = require('../models/graphQL/Post');
 
 
 db.once('open', async () => {
 
   await User.deleteMany();
+  await Post.deleteMany();
 
   await User.create({
     firstName: 'Philip',

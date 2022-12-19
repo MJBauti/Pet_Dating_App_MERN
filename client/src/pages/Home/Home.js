@@ -7,11 +7,12 @@ import Images from '../../components/Images/Images'
 
 export const Landing = () => {
   return (
-    <>
-        <CreatePost />
-        <Images />
+    <>  
+        
         <SideNavbar />
+        
         <CardFeed />
+        
     </>
   );
 };
