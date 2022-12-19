@@ -70,6 +70,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
+    cache: "bounded",
     context: authMiddleware,
   });
   await server.start();
