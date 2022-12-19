@@ -37,7 +37,7 @@ export function PostCard({ post }) {
     const userData = data?.user || {};
 
     function goToPostId() {
-        window.location.href.replace(`/posts/${post.id}`)
+        window.location.replace(`https://a-pawfect-match.herokuapp.com/posts/${post.id}` || `posts/${post.id}`)
     };
     
     return (
