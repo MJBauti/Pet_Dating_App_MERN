@@ -7,10 +7,11 @@ import {
     MDBCardBody,
     MDBCardTitle,
     MDBCardImage,
+    MDBContainer,
   }
   from 'mdb-react-ui-kit';
 
-export function Images() {
+export const Images = () => {
   const [images, setImages] = React.useState([]);
   const maxNumber = 69;
 //   const image = this.getImage.value;
@@ -20,14 +21,24 @@ export function Images() {
     // data for submit
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
-    
-  // Save all the images to local storage
+
     imageList.forEach((image, index) => {
-    localStorage.setItem(`image${index}`, image['data_url']);
+      var i=0;
+      index = i++;
+      localStorage.setItem(`image${index}`, image['data_url']);
+      const storedImages = []; 
+      for(let i=0; i < storedImages; i++) {
+        const storedImage = localStorage.getItem(`image${i}`);
+        storedImages.push(storedImage);
+      };
     });
   };
 
+  function addPhoto() {
+    
+  }
   return (
+    <MDBContainer className="ImagesWrapper">
     <MDBCard className="Images">
       <ImageUploading
         multiple
@@ -54,6 +65,7 @@ export function Images() {
                 <div className="image-item__btn-wrapper">
                   <MDBBtn className="update" onClick={() => onImageUpdate(index)}>Update</MDBBtn>
                   <MDBBtn className="remove" onClick={() => onImageRemove(index)}>Remove</MDBBtn>
+                  <MDBBtn onClick={addPhoto}>Upload</MDBBtn>
                 </div>
               </div>
             ))}
@@ -70,6 +82,7 @@ export function Images() {
         )}
       </ImageUploading>
     </MDBCard>
+    </MDBContainer>
   );
 }
 

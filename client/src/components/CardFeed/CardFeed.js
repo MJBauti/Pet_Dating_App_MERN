@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import "./CardFeed.css";
 import PostCard from '../PostCard/PostCard';
 import CreatePost from '../CreatePost/CreatePost';
+import Images from '../Images/Images';
 
 import { GET_SINGLE_POST } from '../../utils/queries';
 
@@ -23,9 +24,12 @@ export const CardFeed = () => {
       <MDBRow>
         {
           <MDBCol>
-            <CreatePost />
+
+            <CreatePost/>
+            
           </MDBCol>
         }
+        <Images />
         {loading ? (
           <h1>Loading post...</h1>
         ) : (
