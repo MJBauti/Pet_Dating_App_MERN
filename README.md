@@ -16,7 +16,7 @@ Welcome 😊👋
   - [License 🔑](#license-)
 
 ## Description 📝
-<img src="./client/assets/doggologo.png" width="100px"> 
+
 
 Welcome to our MERN stack website built with GraphQL, Apollo servers, Express, Node.js, React, and Stripe. This website is a platform for dog lovers to connect with each other and donate to local pet shelters.
 
@@ -54,11 +54,9 @@ once you have seeded your database you can start the application by running
 
 ## Deployment 👨‍💻
 
-Deployed on [Heroku](https://a-pawfect-match.herokuapp.com)
+Deployed on [Heroku](https://a-pawfect-help.herokuapp.com/)
 
 ## Contributors 🦾
-
-Andrew Choi
 
 Gassan Bundakji
 
@@ -67,12 +65,15 @@ Jayden Trinh
 Jeffrey Tran
 
 Michael Bautista
+
+Andrew Choi
+
 <img src="./client/assets/doggologo.png" width="100px"> 
 ## License 🔑
 
 MIT License
 
-Copyright (c) [2022]  [Andrew-Choi] [Gassan-Bundakji] [Jayden-Trinh] [Jeffrey-Tran] [Michael-Bautista]
+Copyright (c) [2022]  [Gassan-Bundakji] [Jayden-Trinh] [Jeffrey-Tran] [Michael-Bautista] [Andrew-Choi] 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
