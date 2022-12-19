@@ -1,11 +1,12 @@
 .postWrapper {
     min-height: auto;
-    margin-left: 15%;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    align-content: left;
+    justify-content: left;
     flex-direction: column;
+    place-items: left;
+    padding-right: 10000000000px;
 }
 
 .formBox {
@@ -24,5 +25,16 @@
         rgb(148, 250, 247) 26.8%, 
         rgb(235, 253, 239) 80%  
     );
+    place-self: left;
+}
 
+.rowPost {
+    padding-top: 20vh;
+    padding-right: 400px;
+    place-self: left;
+
+}
+
+.commentCard {
+    margin-top: 15px;
 }

@@ -4,12 +4,12 @@ import logoPng from '../../Assets/logo.png'
 
 
 export const About = () => {
-    const description = `Welcome to Pawfect Match, the place where pet lovers
-     can connect and find their perfect match. Whether you're looking for a furry
-      companion to play fetch with, a playmate for your furry friend, to make a new friend,
-       or find your own match, you'll find what you're looking for here. Our members are all animal lovers,
-        so you can trust that your pets will be in good hands. Join now and start your
-         search for your pawfect match!`
+    const description = `Welcome to our Pawfect Help, where we raise funds for local pet shelters. 
+    Our mission is to help provide the necessary resources for these shelters to care for abandoned, neglected, and homeless pets. 
+    With your support, we are able to make a real difference in the lives of these animals.
+    You can also make a donation directly to a specific shelter or make a general donation to be used where it is needed most.
+    We appreciate your support and hope that you will join us in our efforts to improve the lives of pets in need. 
+    Together, we can make a positive impact on the lives of these animals and give them the love and care they deserve.!`
     return (
         <section className="aboutWrap" id="About">
             <main className="main" maxwidth="md">

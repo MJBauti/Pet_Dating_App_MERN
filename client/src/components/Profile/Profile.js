@@ -64,7 +64,7 @@ export function Profile() {
         },
         });
         if (mutationResponse) {
-            window.location.replace(`https://a-pawfect-match.herokuapp.com/profile` || ``);
+            window.location.replace(`/profile`);
         }
       } 
   

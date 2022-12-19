@@ -1,20 +1,12 @@
-# Pawfect Match🐶💘
+# Pawfect Help🐶💘
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-![](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-
-![](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
-
-![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-
-![](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) ![](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) ![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 
 Welcome 😊👋
 
 ## Table of Contents 📓
 
-- [Pawfect Match🐶💘](#pawfect-match)
+- [Pawfect Help🐶💘](#pawfect-help)
   - [Table of Contents 📓](#table-of-contents-)
   - [Description 📝](#description-)
   - [Visuals 📷](#visuals-)
@@ -24,32 +16,41 @@ Welcome 😊👋
   - [License 🔑](#license-)
 
 ## Description 📝
+<img src="./client/assets/doggologo.png" width="100px"> 
 
-This application was built using Mongo Db, Express.js, React, and Node.js or the MERN stack. This app allows you to sign up to create your account or sign in to your existing account to begin your adventure through Pawfect Match, our non-profit dog based social media website. Once logged in you will be able to create your own profile, make text or photo posts, like posts, comment on posts, and follow others. This was meant to be created for the dog lovers out there who would like to make new freinds with other dog lovers, set up play dates, or even meet someone for yourself! As dog lovers ourselves, we added the ability to make a donation, using Stripe, to help support dogs in need of help.
+Welcome to our MERN stack website built with GraphQL, Apollo servers, Express, Node.js, React, and Stripe. This website is a platform for dog lovers to connect with each other and donate to local pet shelters.
+
+Our website uses GraphQL to provide a flexible and efficient way to query and mutate data, and Apollo servers to handle GraphQL operations on the server-side. We also use Express and Node.js to build the server and handle routing, and React for the client-side interface. Finally, we utilize Stripe for secure and convenient donation processing.
+
+Thank you for supporting our mission to improve the lives of pets in need through donations to local shelters. We hope you enjoy using our website and connecting with other dog lovers.
 
 ## Visuals 📷
 
-<img src="./client/assets/pawfect-match1.png" width="500px">
+<img src="./client/assets/pawfect-match.png" width="500px">
 <br>
 <img src="./client/assets/donate-doggo.png" width="500px">
 <br>
 <img src="./client/assets/stripe-donate.png" width="500px">
 
 
+
+
 ## Installation 🔃
 
 If you would like to install this app on your local machine you will need to clone the repo then run 
 
-`npm i`
+```sh
+  npm i
+```
 
 once you have installed your dependencies you must run 
-
-`npm run seed`
-
+```sh
+  npm run seed
+```
 once you have seeded your database you can start the application by running
-
-`npm run start`
-
+```sh
+  npm run start
+```
 
 ## Deployment 👨‍💻
 
@@ -66,7 +67,7 @@ Jayden Trinh
 Jeffrey Tran
 
 Michael Bautista
-
+<img src="./client/assets/doggologo.png" width="100px"> 
 ## License 🔑
 
 MIT License

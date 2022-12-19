@@ -37,10 +37,11 @@ export function PostCard({ post }) {
     const userData = data?.user || {};
 
     function goToPostId() {
-        window.location.replace(`https://a-pawfect-match.herokuapp.com/posts/${post.id}` || `posts/${post.id}`)
+        window.location.replace(`/posts/${post.id}`)
     };
     
     return (
+        <div className="bigwrapper">
         <MDBCard className="postCardWrapper">
             <MDBCardBody>
                 <MDBCardImage
@@ -92,6 +93,7 @@ export function PostCard({ post }) {
                 )} */}
             </MDBCardBody>
         </MDBCard>
+        </div>
     );
 };
 
