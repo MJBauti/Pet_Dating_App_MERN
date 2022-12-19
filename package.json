@@ -16,6 +16,7 @@
         "concurrently": "^5.3.0"
     },
     "dependencies": {
+        "mdb-react-ui-kit": "^5.1.0",
         "moment": "^2.29.4"
     }
 }

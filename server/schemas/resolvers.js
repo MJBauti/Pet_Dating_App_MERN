@@ -102,21 +102,21 @@ const resolvers = {
       
             return post;
         },
-        deletePost: async(_, { postId }, context) => {
-            const user = (context);
+        // deletePost: async(_, { postId }, context) => {
+        //     const user = (context);
       
-            try {
-              const post = await Post.findById(postId);
-              if (user._id === post._id) {
-                await post.delete();
-                return "Post deleted successfully";
-              } else {
-                throw new AuthenticationError("Action not allowed");
-              }
-            } catch (err) {
-              throw new Error(err);
-            }
-        },
+        //     try {
+        //       const post = await Post.findById(postId);
+        //       if (user._id === post._id) {
+        //         await post.delete();
+        //         return "Post deleted successfully";
+        //       } else {
+        //         throw new AuthenticationError("Action not allowed");
+        //       }
+        //     } catch (err) {
+        //       throw new Error(err);
+        //     }
+        // },
         likePost: async(_, { postId }, context) => {
             const { email } = (context);
       
@@ -157,25 +157,25 @@ const resolvers = {
               return post;
             } else throw new UserInputError("Post not found");
         },
-        deleteComment: async(_, { postId, commentId }, context) => {
-          const { email } = (context);
+        // deleteComment: async(_, { postId, commentId }, context) => {
+        //   const { email } = (context);
     
-          const post = await Post.findById(postId);
+        //   const post = await Post.findById(postId);
     
-          if (post) {
-            const commentIndex = post.comments.findIndex((c) => c.id === commentId);
+        //   if (post) {
+        //     const commentIndex = post.comments.findIndex((c) => c.id === commentId);
     
-            if (post.comments[commentIndex].email === email) {
-              post.comments.splice(commentIndex, 1);
-              await post.save();
-              return post;
-            } else {
-              throw new AuthenticationError("Action not allowed");
-            }
-          } else {
-            throw new UserInputError("Post not found");
-          }
-        },
+        //     if (post.comments[commentIndex].email === email) {
+        //       post.comments.splice(commentIndex, 1);
+        //       await post.save();
+        //       return post;
+        //     } else {
+        //       throw new AuthenticationError("Action not allowed");
+        //     }
+        //   } else {
+        //     throw new UserInputError("Post not found");
+        //   }
+        // },
     },
     // Subscription: {
     //     newPost: {

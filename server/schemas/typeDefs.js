@@ -77,9 +77,7 @@ const typeDefs = gql`
         deleteComment(postId: ID, commentId: ID): Post!
         likePost(postId: ID): Post!
     }
-    type Subscription {
-        newPost: Post!
-    }
+    
 `;
 // follow(
 //     followingId: ID!):Follow
