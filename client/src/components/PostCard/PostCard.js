@@ -60,10 +60,12 @@ export function PostCard({ post }) {
                 
                 <p>{post.body}</p>
                 {storedImages.map((image, index) => {
-                            return <img src={`${image}`} key={index} alt={`image${index} from local storage`} />
+                            if (image)
+                            return <img className="uploaded" src={`${image}`} key={index}  />         
                 })}
                 <div className="likeButtonCSS">
                 <LikeButton
+                    className="like"
                     user={userData.firstName}
                     id={post.id}
                     body={post.body}

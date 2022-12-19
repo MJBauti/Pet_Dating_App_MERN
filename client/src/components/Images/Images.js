@@ -14,6 +14,8 @@ import {
 export const Images = () => {
   const [images, setImages] = React.useState([]);
   const maxNumber = 69;
+//   const image = this.getImage.value;
+//   localStorage.setItem('image', image );
 
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
@@ -60,7 +62,6 @@ export const Images = () => {
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
                 <MDBCardImage src={image['data_url']} alt="" width="200px" />
-
                 <div className="image-item__btn-wrapper">
                   <MDBBtn className="update" onClick={() => onImageUpdate(index)}>Update</MDBBtn>
                   <MDBBtn className="remove" onClick={() => onImageRemove(index)}>Remove</MDBBtn>
@@ -68,7 +69,7 @@ export const Images = () => {
                 </div>
               </div>
             ))}
-            <MDBCardTitle>Pupper</MDBCardTitle>
+            {/* <MDBCardTitle>Pupper</MDBCardTitle> */}
             <MDBBtn
               style={isDragging ? { color: 'red' } : undefined}
               onClick={onImageUpload}

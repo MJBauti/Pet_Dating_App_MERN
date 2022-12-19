@@ -18,13 +18,14 @@ import {
   MDBRow,
   MDBTextArea,
 } from 'mdb-react-ui-kit';
-import { valueFromASTUntyped } from 'graphql';
 
 
 export const CreatePost = () => {
     // function to display user's data on posting.
     const { loading, data } = useQuery(QUERY_USER);
     const userData = data?.user || {};
+    const [images, setImages] = React.useState([]);
+    const [showImages, setShowImages] = React.useState(true);
 
     
     // Function to retrieve all users' posts.
@@ -54,12 +55,12 @@ export const CreatePost = () => {
             storedImages.push(storedImage);
     };
 
+
     // remove photos
     function refreshMyPhotos() {
        document.getElementById('deleteMe').textContent = ''
     }
 
-    // function for images please fix me later gasssan 
     
     function createPostCallback() {
         createPost();
@@ -97,9 +98,13 @@ export const CreatePost = () => {
                         </MDBCardBody>
 
                         {/* {ternuryImages} */}
-                        <div id="deleteMe">
+                        <div className="img-up" id="deleteMe">
                         {storedImages.map((image, index) => {
-                            return <img src={`${image}`} key={index} alt={`image${index} from local storage`} />
+                            if (image === images)
+                            return <img src={`${image}`} key={index} alt="puppy" />
+                            else {
+                                return("")
+                            }
                         })}
                         </div>
                         
