@@ -5,7 +5,6 @@ import { useForm } from "../../utils/submit-helper";
 import { GET_ALL_POSTS } from '../../utils/queries';
 import { CREATE_POST } from '../../utils/mutations';
 import { QUERY_USER } from '../../utils/queries';
-import Images from '../Images/Images';
 import {
   MDBBtn,
   MDBCard,
@@ -14,7 +13,6 @@ import {
   MDBCardImage,
   MDBCol,
   MDBContainer,
-  MDBIcon,
   MDBRow,
   MDBTextArea,
 } from 'mdb-react-ui-kit';

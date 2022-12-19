@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import "./CardFeed.css";
 import PostCard from '../PostCard/PostCard';

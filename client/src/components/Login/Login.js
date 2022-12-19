@@ -23,7 +23,7 @@ function Login(props) {
 
   const [justifyActive, setJustifyActive] = useState('tab1');;
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN);
+  const [login, { error }] = useMutation(LOGIN);
   const [addUser] = useMutation(ADD_USER);
 
   // This is for the login/signup tabs
