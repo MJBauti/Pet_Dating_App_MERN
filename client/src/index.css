@@ -29,7 +29,6 @@ code {
 }
 ::selection {
   background: #00bfbf;
-  color: #fafafa;
   text-shadow: none;
 }
 ::-webkit-scrollbar {
