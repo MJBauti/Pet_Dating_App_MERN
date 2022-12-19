@@ -64,7 +64,7 @@ export function Profile() {
         },
         });
         if (mutationResponse) {
-            window.location.replace('/profile');
+            window.location.reload();
         }
       } 
   

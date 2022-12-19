@@ -37,7 +37,7 @@ export function PostCard({ post }) {
     const userData = data?.user || {};
 
     function goToPostId() {
-        window.location.replace(`/posts/${post.id}`)
+        window.location.href.replace(`/posts/${post.id}`)
     };
     
     return (
