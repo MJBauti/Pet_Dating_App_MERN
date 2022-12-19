@@ -4,6 +4,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { useForm } from "../../utils/submit-helper";
 import { GET_ALL_POSTS } from '../../utils/queries';
 import { CREATE_POST } from '../../utils/mutations';
+import { QUERY_USER } from '../../utils/queries';
 import {
   MDBBtn,
   MDBCard,
@@ -19,6 +20,10 @@ import {
 
 
 export const CreatePost = () => {
+    // function to display user's data on posting.
+    const { loading, data } = useQuery(QUERY_USER);
+    const userData = data?.user || {};
+    // Function to retrieve all users' posts.
     const { values, onChange, onSubmit } = useForm(createPostCallback, {
         body: "",
     });
@@ -35,9 +40,17 @@ export const CreatePost = () => {
         },
     });
 
+
+    console.log(values.body);
+
     function createPostCallback() {
         createPost();
-    }
+        window.location.reload();
+    };
+
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    };
 
     return (
         <form onSubmit={onSubmit}>
@@ -50,17 +63,17 @@ export const CreatePost = () => {
                         <div className="d-flex flex-start align-items-center">
                             <MDBCardImage
                             className="rounded-circle shadow-1-strong me-3"
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp"
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                             alt="avatar"
                             width="60"
                             height="60"
                             />
                             <div>
-                            <h6 className="fw-bold text-primary mb-1">Lily Coleman</h6>
+                            <h6 className="fw-bold text-primary mb-1">{userData.firstName} {userData.lastName}</h6>
                             </div>
                         </div>
                         <p className="mt-3 mb-4 pb-2">
-                            {values.body}
+                            {values.body ? values.body : "Share your thoughts!"}
                         </p>
                         </MDBCardBody>
 
@@ -69,11 +82,10 @@ export const CreatePost = () => {
                         style={{ backgroundColor: "#f8f9fa" }}
                         >
                         <div className="d-flex flex-start w-100">
-                            <MDBTextArea placeholder="Enter Something..."
+                            <MDBTextArea label="Enter Something..."
                                 name="body"
                                 onChange={onChange}
                                 value={values.body}
-                                error={error ? true : false} 
                                 rows={4} style={{backgroundColor: '#fff'}} wrapperClass="w-100" />
                         </div>
                         <div className="float-end mt-2 pt-1">
@@ -92,8 +104,3 @@ export const CreatePost = () => {
 }
 
   export default CreatePost;
-
-  
-
-
-
