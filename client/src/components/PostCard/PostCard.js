@@ -49,11 +49,14 @@ export function PostCard({ post }) {
                   className="rounded-circle"
                   style={{ width: '150px' }}
                   fluid />
+                    <div>
+                    <h6 className=" textMe fw-bold text-primary mb-1">{post.email}</h6>
+                    </div>
                 <h4 className="font-weight-bold mb-1">{post.email}</h4>
                 <Link to={`/posts/${post.id}`}>
                     {moment(post.createdAt).fromNow(true)}
                 </Link>
-                
+                : posted by: {userData.email}
                 <p>{post.body}</p>
                 {storedImages.map((image, index) => {
                             if (image)

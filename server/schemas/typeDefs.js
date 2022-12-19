@@ -71,7 +71,7 @@ const typeDefs = gql`
             breed: String, 
             birthday: String): User
 
-        createPost(body: String!): Post!
+        createPost(body: String!, email: String!): Post!
         deletePost(postId: ID!): String!
         createComment(postId: String!, body: String!): Post!
         deleteComment(postId: ID, commentId: ID): Post!

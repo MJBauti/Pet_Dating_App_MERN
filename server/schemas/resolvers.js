@@ -81,7 +81,7 @@ const resolvers = {
       
             throw new AuthenticationError('Not logged in');
         },
-        createPost: async(_, { body }, context) => {
+        createPost: async(_, { body, email }, context) => {
             const user = (context);
             console.log(user);
       
@@ -91,7 +91,7 @@ const resolvers = {
       
             const newPost = new Post({
               body,
-              user: user.id,
+              email: user.email,
               firstName: user.firstName,
               lastName: user.lastName,
               createdAt: new Date().toISOString(),
@@ -102,6 +102,7 @@ const resolvers = {
       
             return post;
         },
+        
         // deletePost: async(_, { postId }, context) => {
         //     const user = (context);
       
