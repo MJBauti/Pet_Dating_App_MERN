@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { MDBBtn, MDBIcon, MDBBadge } from "mdb-react-ui-kit";
+import { MDBBtn, MDBBadge } from "mdb-react-ui-kit";
 import { useMutation, useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
 import { LIKE_POST } from "../../utils/mutations";
 import { QUERY_USER } from '../../utils/queries';
-import Popup from "../../utils/Popup";
 
 export function LikeButton({ id, likes, likeCount, email }) {
     const [liked, setLiked] = useState(false);
@@ -21,21 +19,21 @@ export function LikeButton({ id, likes, likeCount, email }) {
         variables: { postId: id },
     });
 
-    const likeButton = email ? (
-        liked ? (
-        <MDBBtn>
-            ❤️
-        </MDBBtn>
-        ) : (
-        <MDBBtn>
-            ❤️
-        </MDBBtn>
-        )
-    ) : (
-        <MDBBtn as={Link} to="/login" color="teal" basic>
-            <MDBIcon fas icon="heart"/>
-        </MDBBtn>
-    );
+    // const likeButton = email ? (
+    //     liked ? (
+    //     <MDBBtn>
+    //         ❤️
+    //     </MDBBtn>
+    //     ) : (
+    //     <MDBBtn>
+    //         ❤️
+    //     </MDBBtn>
+    //     )
+    // ) : (
+    //     <MDBBtn as={Link} to="/login" color="teal" basic>
+    //         <MDBIcon fas icon="heart"/>
+    //     </MDBBtn>
+    // );
 
     return (
         <div>

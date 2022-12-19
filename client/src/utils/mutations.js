@@ -123,11 +123,11 @@ mutation likePost($postId: ID) {
 `;
 
 export const CREATE_POST = gql`
-mutation createPost($body: String!) {
-  createPost(body: $body) {
+mutation createPost($body: String!, $email:String!) {
+  createPost(body: $body, email: $email) {
     id
-    body
     createdAt
+    body
     email
     likes {
       id

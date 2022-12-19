@@ -1,3 +1,10 @@
+.postCardWrapper {
+    direction: flex;
+}
+
+.textMe {
+    padding-left: 5%
+}
 .uploaded {
     width: 300px;
     padding: 20px;

@@ -11,23 +11,16 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "apollo-client": "^2.6.2",
-        "apollo-link-context": "^1.0.20",
-        "apollo-link-http": "^1.5.17",
-        "graphql-tag": "^2.12.6",
-        "@graphql-tools/schema": "^9.0.12",
         "apollo-server-express": "^3.6.2",
         "bcrypt": "^4.0.1",
         "dotenv": "16.0.3",
         "express": "^4.17.2",
         "graphql": "^16.3.0",
-        "graphql-ws": "^5.11.2",
+        "imgur": "^2.2.0",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.1.8",
         "path": "^0.12.7",
-        "socket.io": "4.5.4",
-        "stripe": "^8.67.0",
-        "ws": "^8.11.0"
+        "stripe": "^8.67.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.6"

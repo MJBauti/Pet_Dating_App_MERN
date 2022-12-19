@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import './CreatePost.css'
 import { useMutation, useQuery } from '@apollo/client';
 import { useForm } from "../../utils/submit-helper";
 import { GET_ALL_POSTS } from '../../utils/queries';
 import { CREATE_POST } from '../../utils/mutations';
 import { QUERY_USER } from '../../utils/queries';
-import Images from '../Images/Images';
 import {
   MDBBtn,
   MDBCard,
@@ -14,9 +13,9 @@ import {
   MDBCardImage,
   MDBCol,
   MDBContainer,
-  MDBIcon,
   MDBRow,
   MDBTextArea,
+  MDBInput
 } from 'mdb-react-ui-kit';
 
 
@@ -25,35 +24,55 @@ export const CreatePost = () => {
     const { loading, data } = useQuery(QUERY_USER);
     const userData = data?.user || {};
     const [images, setImages] = React.useState([]);
+    const [createPost] = useMutation(CREATE_POST);
     const [showImages, setShowImages] = React.useState(true);
-
+    const [formState, setFormState] = useState({ body: '', email: '' });
     
-    // Function to retrieve all users' posts.
-    const { values, onChange, onSubmit } = useForm(createPostCallback, {
-        body: "",
-        email: userData.email,
-    });
-    values.email = userData.email;
-    
-    const [createPost, { error }] = useMutation(CREATE_POST, {
+    // Function to retrieve all users' inputs.
+    // const { values, onChange, onSubmit } = useForm(createPostCallback, {
+    //     body: "",
         
-        variables: values,
-        update(proxy, result) {
-          const data = proxy.readQuery({
-            query: GET_ALL_POSTS,
-          });
-          Object.getPosts = [result.data.createPost, ...data.getPosts];
-          proxy.writeQuery({ query: GET_ALL_POSTS, data });
-          values.body = ""
-        },
-    });
+    // });
+    
+    // const [createPost, { error }] = useMutation(CREATE_POST, {
+        
+    //     variables: {
+    //         values,
+    //     },
+    //     update(proxy, result) {
+    //       const data = proxy.readQuery({
+    //         query: GET_ALL_POSTS,
+    //       });
+    //       Object.getPosts = [result.data.createPost, ...data.getPosts];
+    //       proxy.writeQuery({ query: GET_ALL_POSTS, data });
+    //       values.body = ""
+          
+    //     },
+    // });
+
+    // create post handler 
+    const handleFormCreatePost = async (event) => {
+        event.preventDefault();
+    
+        const mutationResponse = await createPost({
+          variables: {
+              email: userData.email,
+              body: formState.body,
+          },
+          
+        });
+        window.location.reload();
+    };
 
     // image handler
     const storedImages = []; 
+    if(storedImages == null || undefined) {
+        return
+    } else {
         for(let i=0; i < 3; i++) {
             const storedImage = localStorage.getItem(`image${i}`);
             storedImages.push(storedImage);
-    };
+    }};
 
 
     // remove photos
@@ -61,20 +80,26 @@ export const CreatePost = () => {
        document.getElementById('deleteMe').textContent = ''
     }
 
+    // This takes in the user's input
+    const handleChange = (event) => {
     
-    function createPostCallback() {
-        createPost();
-        window.location.reload();
+        const { name, value } = event.target;
+        setFormState({
+        ...formState,
+        [name]: value,
+        });
     };
+    
+    // function createPostCallback() {
+    //     createPost();
+    // };
 
     if (loading) {
         return <h2>LOADING...</h2>;
     };
     
-    console.log(storedImages);
     return (
-        <form onSubmit={onSubmit}>
-            <section>
+        <form onSubmit={handleFormCreatePost}>
                 <MDBContainer className="py-5" style={{ maxWidth: "1000px" }}>
                 <MDBRow className="justify-content-center">
                     <MDBCol md="12" lg="10" xl="8">
@@ -93,7 +118,7 @@ export const CreatePost = () => {
                             </div>
                         </div>
                         <p className="mt-3 mb-4 pb-2">
-                            {values.body ? values.body : "Share your thoughts!"}
+                            "Share your thoughts!"
                         </p>
                         </MDBCardBody>
 
@@ -113,13 +138,16 @@ export const CreatePost = () => {
                         className="py-3 border-0"
                         style={{ backgroundColor: "#f8f9fa" }}
                         >
-                        <div className="d-flex flex-start w-100">
-                            <MDBTextArea label="Enter Something..."
+                        <MDBCol className="d-flex flex-start w-100">
+                            <MDBInput label="Enter Something..."
                                 name="body"
-                                onChange={onChange}
-                                value={values.body}
+                                type='firstName'
+
+                                id="body"
+                                onInput={handleChange}
+
                                 rows={4} style={{backgroundColor: '#fff'}} wrapperClass="w-100" />
-                        </div>
+                        </MDBCol>
                         <div className="float-end mt-2 pt-1">
                         
                           
@@ -134,7 +162,6 @@ export const CreatePost = () => {
                     </MDBCol>
                 </MDBRow>
                 </MDBContainer>
-            </section>
         </form>
     
     );

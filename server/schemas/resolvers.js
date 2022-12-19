@@ -1,6 +1,6 @@
 const { AuthenticationError, UserInputError } = require('apollo-server-express');
 const User = require('../models/User');
-const Post = require('../models/graphQl/Post');
+const Post = require('../models/Post');
 
 const { signToken } = require('../utils/auth')
 
@@ -81,7 +81,7 @@ const resolvers = {
       
             throw new AuthenticationError('Not logged in');
         },
-        createPost: async(_, { body }, context) => {
+        createPost: async(_, { body, email }, context) => {
             const user = (context);
             console.log(user);
       
@@ -91,7 +91,7 @@ const resolvers = {
       
             const newPost = new Post({
               body,
-              user: user.id,
+              email: user.email,
               firstName: user.firstName,
               lastName: user.lastName,
               createdAt: new Date().toISOString(),
@@ -102,21 +102,22 @@ const resolvers = {
       
             return post;
         },
-        deletePost: async(_, { postId }, context) => {
-            const user = (context);
+        
+        // deletePost: async(_, { postId }, context) => {
+        //     const user = (context);
       
-            try {
-              const post = await Post.findById(postId);
-              if (user._id === post._id) {
-                await post.delete();
-                return "Post deleted successfully";
-              } else {
-                throw new AuthenticationError("Action not allowed");
-              }
-            } catch (err) {
-              throw new Error(err);
-            }
-        },
+        //     try {
+        //       const post = await Post.findById(postId);
+        //       if (user._id === post._id) {
+        //         await post.delete();
+        //         return "Post deleted successfully";
+        //       } else {
+        //         throw new AuthenticationError("Action not allowed");
+        //       }
+        //     } catch (err) {
+        //       throw new Error(err);
+        //     }
+        // },
         likePost: async(_, { postId }, context) => {
             const { email } = (context);
       
@@ -157,31 +158,31 @@ const resolvers = {
               return post;
             } else throw new UserInputError("Post not found");
         },
-        deleteComment: async(_, { postId, commentId }, context) => {
-          const { email } = (context);
+        // deleteComment: async(_, { postId, commentId }, context) => {
+        //   const { email } = (context);
     
-          const post = await Post.findById(postId);
+        //   const post = await Post.findById(postId);
     
-          if (post) {
-            const commentIndex = post.comments.findIndex((c) => c.id === commentId);
+        //   if (post) {
+        //     const commentIndex = post.comments.findIndex((c) => c.id === commentId);
     
-            if (post.comments[commentIndex].email === email) {
-              post.comments.splice(commentIndex, 1);
-              await post.save();
-              return post;
-            } else {
-              throw new AuthenticationError("Action not allowed");
-            }
-          } else {
-            throw new UserInputError("Post not found");
-          }
-        },
+        //     if (post.comments[commentIndex].email === email) {
+        //       post.comments.splice(commentIndex, 1);
+        //       await post.save();
+        //       return post;
+        //     } else {
+        //       throw new AuthenticationError("Action not allowed");
+        //     }
+        //   } else {
+        //     throw new UserInputError("Post not found");
+        //   }
+        // },
     },
-    Subscription: {
-        newPost: {
-          subscribe: (_, __, { pubsub }) => pubsub.asyncIterator("NEW_POST"),
-        },
-      },
+    // Subscription: {
+    //     newPost: {
+    //       subscribe: (_, __, { pubsub }) => pubsub.asyncIterator("NEW_POST"),
+    //     },
+    //   },
 };
 
 module.exports = resolvers;

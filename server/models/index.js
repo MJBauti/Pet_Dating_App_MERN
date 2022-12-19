@@ -1,5 +1,5 @@
 const User = require('./User');
-const Post = require('./graphQL/Post');
+const Post = require('./Post');
 
 
 module.exports = {User, Post};

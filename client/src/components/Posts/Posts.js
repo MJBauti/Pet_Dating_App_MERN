@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Posts.css'
 import { useMutation, useQuery, gql } from '@apollo/client';
 import moment from "moment";
-import AuthContext from '../../utils/authHelper';
 import { ADD_COMMENT } from '../../utils/mutations';
-import { LIKE_POST } from '../../utils/mutations';
-import { DELETE_COMMENT } from '../../utils/mutations';
-import { DELETE_POST } from '../../utils/mutations';
+// import { LIKE_POST } from '../../utils/mutations';
+// import { DELETE_COMMENT } from '../../utils/mutations';
+// import { DELETE_POST } from '../../utils/mutations';
 
 import {
   MDBBtn,
@@ -17,21 +16,19 @@ import {
   MDBCardImage,
   MDBCol,
   MDBContainer,
-  MDBIcon,
   MDBRow,
-  MDBTextArea,
   MDBBadge,
   MDBInput
 } from 'mdb-react-ui-kit';
 
-import DeleteButton from '../DeleteButton/DeleteButton';
+// import DeleteButton from '../DeleteButton/DeleteButton';
 import LikeButton from '../LikeButton/LikeButton';
-import Popup from '../../utils/Popup';
+// import Popup from '../../utils/Popup';
 
 export function Posts(props) {
   const [speed, setSpeed] = useState("");
   const [comment, setComment] = useState("");
-  const commentInputRef = useRef(null);
+  // const commentInputRef = useRef(null);
   
   const url = window.location.pathname;
   const postId = url.split('/')[2];
@@ -144,21 +141,21 @@ export function Posts(props) {
 };
 
 
-const QUERY_USER = gql`
-  {
-    user {
-      _id
-      firstName
-      lastName
-      email
-      dogName
-      gender
-      breed
-      birthday
+// const QUERY_USER = gql`
+//   {
+//     user {
+//       _id
+//       firstName
+//       lastName
+//       email
+//       dogName
+//       gender
+//       breed
+//       birthday
       
-    }
-  }
-`;
+//     }
+//   }
+// `;
 
 export const GET_ALL_POSTS = gql`
   query($postId: ID!) {

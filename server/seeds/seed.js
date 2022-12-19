@@ -1,7 +1,7 @@
 
 const db = require('../config/connection');
 const User = require('../models/User');
-const Post = require('../models/graphQL/Post');
+const Post = require('../models/Post');
 
 
 db.once('open', async () => {

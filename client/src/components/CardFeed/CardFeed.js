@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import "./CardFeed.css";
 import PostCard from '../PostCard/PostCard';
@@ -17,9 +17,9 @@ export const CardFeed = () => {
   const { loading, data } = useQuery(GET_SINGLE_POST);
   
   return (
-    <MDBContainer>
+    <MDBContainer className="card-feed-container">
       <MDBRow className="page-title">
-        <h1>Recent Posts</h1>
+        <h1 className="recent-posts">Recent Posts</h1>
       </MDBRow>
       <MDBRow>
         {

@@ -4,8 +4,6 @@ import './Images.css';
 import {
     MDBBtn,
     MDBCard,
-    MDBCardBody,
-    MDBCardTitle,
     MDBCardImage,
     MDBContainer,
   }
