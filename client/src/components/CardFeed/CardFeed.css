@@ -1,4 +1,8 @@
-
+.card-feed-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10%;
+}
 
 /* .profile-cards {
     width: 100vw;
@@ -8,11 +12,10 @@
     align-items: center;
     justify-content: center;
     margin-right: 29%;
-    margin-left: 10%;
-    height:100vh;
 }
 
 .recent-posts {
-    padding-top: 75%;
-    font-weight: bolder;
+    padding-bottom: 150%;
+    position: relative;
+    padding-left: 5%;
 }

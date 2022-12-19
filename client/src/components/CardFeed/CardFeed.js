@@ -18,8 +18,9 @@ export const CardFeed = () => {
   
   return (
     <MDBContainer className="card-feed-container">
+    <h1 className="recent-posts"><strong>Recent Posts</strong></h1>
       <MDBRow className="page-title">
-        <h1 className="recent-posts">Recent Posts</h1>
+        
       </MDBRow>
       <MDBRow>
         {
