@@ -1,6 +1,6 @@
 const { AuthenticationError, UserInputError } = require('apollo-server-express');
 const User = require('../models/User');
-const Post = require('../models/graphQl/Post');
+const Post = require('../models/graphQL/Post');
 
 const { signToken } = require('../utils/auth')
 
