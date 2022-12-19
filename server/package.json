@@ -11,7 +11,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "apollo-client": "^3.5.8",
+        
         "apollo-link-context": "^1.0.20",
         "apollo-link-http": "^1.5.17",
         "graphql-tag": "^2.12.6",
