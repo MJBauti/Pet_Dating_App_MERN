@@ -19,7 +19,7 @@ import {
 }
 from 'mdb-react-ui-kit';
 
-function Login(props) {
+export function Login(props) {
 
   const [justifyActive, setJustifyActive] = useState('tab1');;
   const [formState, setFormState] = useState({ email: '', password: '' });

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Stripe from '@stripe/react-stripe-js';
 
-const PaymentSuccess = () => {
+export const PaymentSuccess = () => {
   const stripe = new Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
