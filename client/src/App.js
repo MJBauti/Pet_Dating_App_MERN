@@ -48,7 +48,7 @@ function App() {
             <Route path="/" element={ <Home /> }/>
             <Route path="/donate" element={ <Donate /> } />
             <Route path="/profile" element={ <Profile /> } />
-            <Route path="/posts" element={ <Posts /> } />
+            <Route path="/posts/:postId" element={ <Posts /> } />
             </>
           ) : (
             <>
