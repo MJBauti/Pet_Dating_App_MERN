@@ -69,7 +69,7 @@ export const Images = () => {
                 </div>
               </div>
             ))}
-            <MDBCardTitle>Pupper</MDBCardTitle>
+            {/* <MDBCardTitle>Pupper</MDBCardTitle> */}
             <MDBBtn
               style={isDragging ? { color: 'red' } : undefined}
               onClick={onImageUpload}

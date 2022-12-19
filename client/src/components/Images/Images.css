@@ -20,6 +20,14 @@
 
     
 }
+
+.upload__image-wrapper {
+    padding: 20px;
+}
+
+.image {
+    max-width: 20px;
+}
 .update {
     margin: 10px;
 }
