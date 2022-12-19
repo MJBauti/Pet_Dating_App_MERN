@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { MDBBtn, MDBModal, MDBIcon } from "mdb-react-ui-kit";
+import { MDBBtn, MDBModal, MDBIcon, 
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
+} from "mdb-react-ui-kit";
 import { GET_SINGLE_POST } from "../../utils/queries";
 import { DELETE_COMMENT } from "../../utils/mutations";
 import { DELETE_POST } from "../../utils/mutations";
 import Popup from "../../utils/Popup";
 
-function DeleteButton({ postId, commentId, callback }) {
+export function DeleteButton({ postId, commentId, callback }) {
   const [confirmOpen, setConfirmOpen] = useState(false);
 
   const mutation = commentId ? DELETE_COMMENT : DELETE_POST;
@@ -42,18 +47,18 @@ function DeleteButton({ postId, commentId, callback }) {
         </MDBBtn>
       </Popup>
       <MDBModal show={confirmOpen} onHide={() => setConfirmOpen(false)}>
-        <MDBModal.Header>
-          <MDBModal.Title>Confirm Delete</MDBModal.Title>
-        </MDBModal.Header>
-        <MDBModal.Body>Are you sure you want to delete this item?</MDBModal.Body>
-        <MDBModal.Footer>
+        <MDBModalHeader>
+          <MDBModalTitle>Confirm Delete</MDBModalTitle>
+        </MDBModalHeader>
+        <MDBModalBody>Are you sure you want to delete this item?</MDBModalBody>
+        <MDBModalFooter>
           <MDBBtn color="secondary" onClick={() => setConfirmOpen(false)}>
             Cancel
           </MDBBtn>
           <MDBBtn color="danger" onClick={deletePost}>
             Delete
           </MDBBtn>
-        </MDBModal.Footer>
+        </MDBModalFooter>
       </MDBModal>
     </>
   );

@@ -45,7 +45,7 @@ export function PostCard({ post }) {
     };
     
     return (
-        <MDBCard>
+        <MDBCard className="postCardWrapper">
             <MDBCardBody>
                 <MDBCardImage
                   src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
@@ -63,6 +63,7 @@ export function PostCard({ post }) {
                             if (image)
                             return <img className="uploaded" src={`${image}`} key={index}  />         
                 })}
+                <div className="likeButtonCSS">
                 <LikeButton
                     className="like"
                     user={userData.firstName}
@@ -75,20 +76,21 @@ export function PostCard({ post }) {
                     likeCount={post.likeCount}
                     commentCount={post.commentCount}
                 />
+                </div>
                 <MDBBtn className='mx-2' color='tertiary' rippleColor='light' onClick={goToPostId}>
-                {post.commentCount ? post.commentCount : "No comments"} 💬
+                {post.commentCount ? post.commentCount : "Comment"} 💬
 
                 </MDBBtn>
 
-                <Popup content="comment">
+                {/* <Popup content="comment">
                     <MDBBtn color="primary" size="sm" className="mr-1">
                         <MDBIcon icon="comments" className="mr-1" />
-                        <MDBBadge>{post.commentCount}</MDBBadge>
+                        <MDBBadge className='ms-2'>{post.commentCount}</MDBBadge>
                     </MDBBtn>
                 </Popup>
                 {userData.email === post.email && (
                     <DeleteButton postId={post.id} />
-                )}
+                )} */}
             </MDBCardBody>
         </MDBCard>
     );
