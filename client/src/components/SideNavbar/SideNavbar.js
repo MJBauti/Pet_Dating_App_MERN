@@ -27,10 +27,6 @@ export const SideNavbar = () => {
                 <Link to="/profile" className={location.pathname === '/profile' ? 'active' : ''} >
                   <h2>Profile</h2>
                 </Link>
-                
-                <Link to="/posts" className={location.pathname === '/posts' ? 'active' : ''} >
-                  <h2>Posts</h2>
-                </Link>
 
                 <Link to="/donate" className={location.pathname === '/donate' ? 'active' : ''} >
                   <h2 className='shopHover' >Donate</h2>

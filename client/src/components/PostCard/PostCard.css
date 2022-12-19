@@ -1,0 +1,9 @@
+.mx-2 {
+    margin-top: 10px;
+}
+.likeButtonCSS {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin:7px;
+}

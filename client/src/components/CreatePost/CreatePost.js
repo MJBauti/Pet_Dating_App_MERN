@@ -30,7 +30,10 @@ export const CreatePost = () => {
     // Function to retrieve all users' posts.
     const { values, onChange, onSubmit } = useForm(createPostCallback, {
         body: "",
+        email: userData.email,
     });
+    values.email = userData.email;
+    
     const [createPost, { error }] = useMutation(CREATE_POST, {
         
         variables: values,
@@ -40,7 +43,7 @@ export const CreatePost = () => {
           });
           Object.getPosts = [result.data.createPost, ...data.getPosts];
           proxy.writeQuery({ query: GET_ALL_POSTS, data });
-          values.body = "";
+          values.body = ""
         },
     });
 
@@ -60,6 +63,7 @@ export const CreatePost = () => {
     
     function createPostCallback() {
         createPost();
+        window.location.reload();
     };
 
     if (loading) {
@@ -88,7 +92,7 @@ export const CreatePost = () => {
                             </div>
                         </div>
                         <p className="mt-3 mb-4 pb-2">
-                            {/* {values.body ? values.body : "Share your thoughts!"} */}
+                            {values.body ? values.body : "Share your thoughts!"}
                         </p>
                         </MDBCardBody>
 

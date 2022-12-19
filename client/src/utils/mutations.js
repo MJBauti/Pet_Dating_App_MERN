@@ -76,7 +76,7 @@ export const UPDATE_USER = gql`
 export const ADD_COMMENT = gql`
   mutation($postId: String!, $body: String!) {
     createComment(postId: $postId, body: $body) {
-      _id
+      id
       comments {
         id
         body
