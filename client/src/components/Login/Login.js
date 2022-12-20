@@ -85,8 +85,8 @@ export function Login(props) {
   return (
     <div className='wrapper'>
       <div className='company-intro'>
-        <h1 className='company-name'> Pawfect Match </h1>
-        <h2> Find Friends, Playdates, for a Date for you! </h2>
+        <h1 className='company-name'> Pawfect Help </h1>
+        <h2> Meet other pet enthusiasts and help local shelters! </h2>
       </div> 
       <div className='login-wrapper'>
         <div className='picture-left'>
@@ -98,7 +98,7 @@ export function Login(props) {
               backgroundRepeat: 'no-repeat',
               backgroundColor: 'skyblue',
             }}>
-            <h1> Meet new friends! </h1>
+            <h1> <strong>🐾🐾Save Us🐾🐾</strong> </h1>
           </div>
           
         </div>

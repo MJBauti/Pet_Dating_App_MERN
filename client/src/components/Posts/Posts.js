@@ -69,12 +69,12 @@ export function Posts(props) {
   } = postData
 
   return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol width={2}>
+    <MDBContainer className='postWrapper'>
+      <MDBRow className='rowPost'>
+        <MDBCol >
           
         </MDBCol>
-        <MDBCol width={10}>
+        <MDBCol >
           <MDBCard>
             <MDBCardBody>
             <MDBCardImage
@@ -106,7 +106,7 @@ export function Posts(props) {
             </MDBCardBody>
           </MDBCard>
           {
-            <MDBCard>
+            <MDBCard className='commentCard'>
               <MDBCardBody>
                 <p>Post a comment</p>
                 <MDBBadge className='ms-2'>{postData.commentCount ? postData.commentCount : "Be the first to comment!"}</MDBBadge>

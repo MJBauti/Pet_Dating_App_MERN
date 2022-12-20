@@ -41,6 +41,7 @@ export function PostCard({ post }) {
     };
     
     return (
+        <div className="bigwrapper">
         <MDBCard className="postCardWrapper">
             <MDBCardBody>
                 <MDBCardImage
@@ -92,6 +93,7 @@ export function PostCard({ post }) {
                 )} */}
             </MDBCardBody>
         </MDBCard>
+        </div>
     );
 };
 

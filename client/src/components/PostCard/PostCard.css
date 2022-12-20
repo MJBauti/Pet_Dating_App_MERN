@@ -1,12 +1,18 @@
+
 .postCardWrapper {
     direction: flex;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-content: left;
+    flex-wrap: wrap;
 }
 
 .textMe {
-    padding-left: 5%
+    padding-left: 10px
 }
 .uploaded {
-    width: 300px;
+    width: 10px;
     padding: 20px;
 }
 

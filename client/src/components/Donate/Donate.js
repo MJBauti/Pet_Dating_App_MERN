@@ -6,7 +6,7 @@ import { MDBBtn, MDBInput } from 'mdb-react-ui-kit';
 const ProductDisplay = ({price}) => (
       <div className="donate-wrapper" id="Donate">
         <section className="Donate">
-
+          
           <div className="product">
               <img
               height="300px"
@@ -15,18 +15,21 @@ const ProductDisplay = ({price}) => (
               alt="The cover of Stubborn Attachments"
               />
               <div className="description">
+              
               <h3>Donate To The Doggos</h3>
-              <form className="form">
-                  <label>Donate Here</label>
-              </form>
+              <div className="introduction"><p>All proceeds from our website go directly to supporting local pet shelters. 
+              Your donations help provide necessary resources such as food, medical care, and shelter for abandoned and homeless animals.
+              Thank you for being a part of this movement.</p></div>
+              
               </div>
           </div>
 
-          <form className="button" action="http://localhost:3001/create-checkout-session" method="POST">
+          <form className="buttonMe" action={"http://localhost:3001/create-checkout-session" || "https://a-pawfect-match.herokuapp.com/"} method="POST">
               <MDBInput
                       defaultValue= {price}
                       name="price"
                       type="text"
+                      label="$"
                   />
                   <br />
               <MDBBtn type="submit">
@@ -63,7 +66,7 @@ export const Donate = () => {
             );
           }
         }, []);
-      
+
         return message ? (
           <Message message={message} />
         ) : (
